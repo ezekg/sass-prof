@@ -29,7 +29,7 @@ module Sass
 
     def fn_name(function)
       case
-      when function.respond_to? :name
+      when function.respond_to?(:name)
         function.name
       else
         nil
@@ -66,7 +66,7 @@ module Sass
       return unless string
       return string unless config.color
 
-      colors = Hash.new("37").merge {
+      colors = Hash.new("37").merge({
         :black  => "30",
         :red    => "31",
         :green  => "32",
@@ -75,7 +75,7 @@ module Sass
         :purple => "35",
         :cyan   => "36",
         :white  => "37",
-      }
+      })
 
       "\e[0;#{colors.fetch(color)}m#{string}\e[0m"
     end
