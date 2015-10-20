@@ -44,7 +44,7 @@ module Sass
 
         @@t_then, @@t_total = @@t_now, t_delta
 
-        color = @@t_total > config.t_max ? :green : :red
+        color = @@t_total > config.t_max ? :red : :green
         colorize t_delta.to_s, color
       end
 
