@@ -98,7 +98,7 @@ module Sass
       end
 
       def to_table(columns, cs = 12)
-        "[ %s ]" % columns.map { |col| "%#{cs}s" % col }.join " | "
+        "[ %s ]" % columns.map { |col| "%#{cs}s" % col }.join(" | ")
       end
     end
 
