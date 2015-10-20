@@ -29,8 +29,8 @@ module Sass
         end
 
         if @@t_total > config.t_max && action == :execute
-          puts colorize "max execution time of #{config.t_max}ms reached for"\
-            " function `#{fn_name}`", :red
+          puts colorize "Max execution time of #{config.t_max}ms reached for"\
+            " function `#{fn_name}` (took #{@@t_total.round(3)}ms)", :red
           exit
         end
       end
