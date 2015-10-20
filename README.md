@@ -1,34 +1,36 @@
-# Sass::Prof
+# Sass Prof
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/sass/prof`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Gem](https://img.shields.io/gem/v/sass-prof.svg?style=flat-square)](https://rubygems.org/gems/sass-prof)
 
-TODO: Delete this and the text above, and describe your gem
+Sass Prof is a code profiler for Sass. For each function, Sass Prof will show the execution time for the function, which file called it and what arguments were given when the function was called.
+
+## Requirements
+
+* Sass ~> `3.4.0`
 
 ## Installation
 
-Add this line to your application's Gemfile:
+1. Install via Ruby `gem install sass-prof`
+2. If you're using Compass, add `require "sass-prof"` to your `config.rb`
+3. Sass Prof will automatically run next time you compile
 
-```ruby
-gem 'sass-prof'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install sass-prof
+## Uninstall
+1. Remove the line `require "sass-prof"` from your `config.rb`
 
 ## Usage
+You may specify a few options within your `config.rb`, such as directing output to a log file.
 
-TODO: Write usage instructions here
+```ruby
+require "sass-prof"
 
-## Development
+# Instance of Sass::Prof's configuration
+prof = Sass::Prof::Config
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+# Available options
+prof.output_file = "sass-prof.log" # Default is `false`
+prof.t_max       = 500             # Default is `100`
+prof.color       = true            # Default is `true`
+```
 
 ## Contributing
 
