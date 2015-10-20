@@ -104,7 +104,7 @@ module Sass
       end
 
       def output_file
-        @output_file = false if @color.nil?
+        @output_file = false if @output_file.nil?
         @output_file
       end
 
