@@ -2,13 +2,13 @@ require "sass/prof/version"
 
 module Sass
   module Prof
-    attr_accessor :t_max, :function, :action, :args, :env
+    attr_accessor :settings, :function, :action, :args, :env
 
     @@t_then = Time.now
     @@t_now  = Time.now
 
     def initialize(function, action, args = nil, env = nil)
-      @t_max    = Sass::Prof::Settings.t_max
+      @settings = Sass::Prof::Config
       @function = fn_name
       @action   = fn_action
       @args     = fn_args
@@ -64,6 +64,7 @@ module Sass
 
     def colorize(string, color)
       return unless string
+      return string unless config.color
 
       colors = Hash.new("37").merge {
         :black  => "30",
@@ -82,18 +83,23 @@ module Sass
     def print_results
       puts [fn_source, fn_execution_time, fn_action, fn_signature].join " | "
 
-      if @@t_total > t_max && @action == :execute
+      if @@t_total > config.t_max && @action == :execute
         puts colorize "max execution time of `#{t_max}` reached for \
           `#{fn_name}`", :red
         exit
       end
     end
 
-    module Settings
-      attr_accessor :t_max
+    module Config
+      attr_accessor :t_max, :color
 
       def t_max
         @t_max ||= 100
+      end
+
+      def color
+        @color = true if @color.nil?
+        @color
       end
     end
   end
