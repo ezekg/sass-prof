@@ -100,10 +100,9 @@ module Sass
       def to_table(a, cs = 12)
         report = []
 
-        report << " " * 5 + a[0].enum_for(:each_with_index).map { |e, i|
+        report << " " * 5 + a.enum_for(:each_with_index).map { |e, i|
           "%#{cs}s" % [i + 1, " "] }.join("   ")
-        report << a.enum_for(:each_with_index).map { |ia, i|
-          "%2i [ %s ]" % [i + 1, ia.map{|e| "%#{cs}s" % e }.join(" | ")] }
+        report << "[ %s ]" % a.map{|e| "%#{cs}s" % e }.join(" | ")
 
         report.join "\n"
       end
