@@ -44,7 +44,8 @@ module Sass
 
         @@t_then, @@t_total = @@t_now, t_delta
 
-        colorize t_delta.to_s, :red
+        color = @@t_total > config.t_max ? :green : :red
+        colorize t_delta.to_s, color
       end
 
       def fn_name
@@ -73,11 +74,11 @@ module Sass
       end
 
       def fn_action
-        colorize action.to_s, :green
+        colorize action.to_s, :red
       end
 
       def fn_signature
-        colorize(fn_name, :blue) << colorize(fn_args, :black)
+        colorize(fn_name, :blue) << "(" << colorize(fn_args, :purple) << ")"
       end
 
       def colorize(string, color)
