@@ -84,8 +84,8 @@ module Sass
       puts [fn_source, fn_execution_time, fn_action, fn_signature].join " | "
 
       if @@t_total > config.t_max && @action == :execute
-        puts colorize "max execution time of `#{t_max}` reached for \
-          `#{fn_name}`", :red
+        puts colorize "max execution time of #{config.t_max}ms reached for"\
+          "`#{fn_name}`", :red
         exit
       end
     end
