@@ -18,12 +18,14 @@ module Sass
       end
 
       def print_results
-        results = [fn_source, fn_execution_time, fn_action, fn_signature].join " | "
+        results = [fn_source, fn_execution_time, fn_action,
+          fn_signature].join " | "
 
         puts results
 
         if config.output_file
-          File.open(config.output_file, "a+") { |f| f.puts results }
+          File.open(config.output_file, "a+") { |f|
+            f.puts results.gsub /\e\[(\d+)(;\d+)*m/, "" }
         end
 
         if @@t_total > config.t_max && action == :execute
@@ -63,10 +65,10 @@ module Sass
       def fn_source
         return colorize("unknown file", :red).ljust 80 unless env
 
-        original_filename = env.options.fetch :original_filename, "unknown file"
-        filename          = env.options.fetch :filename, "unknown file"
+        orig_filename = env.options.fetch :original_filename, "unknown file"
+        filename      = env.options.fetch :filename, "unknown file"
 
-        colorize("#{File.basename(original_filename)}:#{File.basename(filename)}",
+        colorize("#{File.basename(orig_filename)}:#{File.basename(filename)}",
           :yellow).ljust 80
       end
 
