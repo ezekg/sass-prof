@@ -10,9 +10,10 @@ Sass Prof is a code profiler for Sass. For each function, Sass Prof will show th
 
 ## Installation
 
-1. Install via Ruby `gem install sass-prof`
+1. Install with `gem install sass-prof`
 2. If you're using Compass, add `require "sass-prof"` to your `config.rb`
 3. Sass Prof will automatically run next time you compile
+4. That's it!
 
 ## Uninstall
 1. Remove the line `require "sass-prof"` from your `config.rb`
@@ -31,6 +32,8 @@ prof.output_file = "sass-prof.log" # Default is `false`
 prof.t_max       = 500             # Default is `100`
 prof.color       = true            # Default is `true`
 ```
+
+_Please note: your compile times will be slower, due to the overhead that **Sass Prof** brings. This library was created to help you find potential bottlenecks within your code. If you find any bugs or inconsistencies, please file an [issue](https://github.com/ezekg/sass-prof/issues) or [pull request](https://github.com/ezekg/sass-prof/pulls).
 
 ## Contributing
 
