@@ -101,6 +101,8 @@ module Sass
         @color = true if @color.nil?
         @color
       end
+
+      extend self
     end
   end
 
