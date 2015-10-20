@@ -33,7 +33,7 @@ prof.t_max       = 500             # Default is `100`
 prof.color       = true            # Default is `true`
 ```
 
-_Please note: your compile times will be slower, due to the overhead that **Sass Prof** brings. This library was created to help you find potential bottlenecks within your code. If you find any bugs or inconsistencies, please file an [issue](https://github.com/ezekg/sass-prof/issues) or [pull request](https://github.com/ezekg/sass-prof/pulls)._
+_Please note: your compile times **will be slower** due to the overhead of **Sass Prof**. This library was created to help you find potential bottlenecks within your code. If you find any bugs or inconsistencies, please file an [issue](https://github.com/ezekg/sass-prof/issues) or [pull request](https://github.com/ezekg/sass-prof/pulls)._
 
 ## Contributing
 
