@@ -1,92 +1,95 @@
 require "sass/prof/version"
 
 module Sass
-  class Prof
-    attr_accessor :settings, :function, :action, :args, :env
+  module Prof
 
-    @@t_then = Time.now
-    @@t_now  = Time.now
+    class Profiler
+      attr_accessor :settings, :function, :action, :args, :env
 
-    def initialize(function, action, args = nil, env = nil)
-      @settings = Sass::Prof::Config
-      @function = function
-      @action   = action
-      @args     = args
-      @env      = env
+      @@t_then = Time.now
+      @@t_now  = Time.now
 
-      print_results
-    end
+      def initialize(function, action, args = nil, env = nil)
+        @settings = Sass::Prof::Config
+        @function = function
+        @action   = action
+        @args     = args
+        @env      = env
 
-    def fn_execution_time
-      @@t_now = Time.now
-
-      t_delta = (@@t_now.to_f - @@t_then.to_f) * 1000.0
-
-      @@t_then, @@t_total = @@t_now, t_delta
-
-      colorize(t_delta.to_s, :red).ljust 40
-    end
-
-    def fn_name(function)
-      case
-      when function.respond_to?(:name)
-        function.name
-      else
-        nil
+        print_results
       end
-    end
 
-    def fn_args
-      return nil if args.nil?
+      def fn_execution_time
+        @@t_now = Time.now
 
-      args.to_s[1...args.length-2]
-    end
+        t_delta = (@@t_now.to_f - @@t_then.to_f) * 1000.0
 
-    def fn_source
-      return colorize("unknown file", :red).ljust 80 unless env
+        @@t_then, @@t_total = @@t_now, t_delta
 
-      original_filename = env.options.fetch :original_filename, "unknown file"
-      filename          = env.options.fetch :filename, "unknown file"
+        colorize(t_delta.to_s, :red).ljust 40
+      end
 
-      colorize("#{File.basename(original_filename)}:#{File.basename(filename)}",
-        :yellow).ljust 80
-    end
+      def fn_name(function)
+        case
+        when function.respond_to?(:name)
+          function.name
+        else
+          nil
+        end
+      end
 
-    def fn_action
-      colorize(action.to_s, :green).ljust 40
-    end
+      def fn_args
+        return nil if args.nil?
 
-    def fn_signature
-      colorize(fn_name, :blue) + colorize(fn_args, :black)
-    end
+        args.to_s[1...args.length-2]
+      end
 
-    private
+      def fn_source
+        return colorize("unknown file", :red).ljust 80 unless env
 
-    def colorize(string, color)
-      return unless string
-      return string unless config.color
+        original_filename = env.options.fetch :original_filename, "unknown file"
+        filename          = env.options.fetch :filename, "unknown file"
 
-      colors = Hash.new("37").merge({
-        :black  => "30",
-        :red    => "31",
-        :green  => "32",
-        :yellow => "33",
-        :blue   => "34",
-        :purple => "35",
-        :cyan   => "36",
-        :white  => "37",
-      })
+        colorize("#{File.basename(original_filename)}:#{File.basename(filename)}",
+          :yellow).ljust 80
+      end
 
-      "\e[0;#{colors.fetch(color)}m#{string}\e[0m"
-    end
+      def fn_action
+        colorize(action.to_s, :green).ljust 40
+      end
 
-    def print_results
-      puts [fn_source, fn_execution_time, fn_action, fn_signature].join " | "
+      def fn_signature
+        colorize(fn_name, :blue) + colorize(fn_args, :black)
+      end
 
-      if @@t_total > config.t_max && action == :execute
-        puts colorize "max execution time of #{config.t_max}ms reached for"\
-          " function `#{fn_name}`", :red
-        exit
+      private
+
+      def colorize(string, color)
+        return unless string
+        return string unless config.color
+
+        colors = Hash.new("37").merge({
+          :black  => "30",
+          :red    => "31",
+          :green  => "32",
+          :yellow => "33",
+          :blue   => "34",
+          :purple => "35",
+          :cyan   => "36",
+          :white  => "37",
+        })
+
+        "\e[0;#{colors.fetch(color)}m#{string}\e[0m"
+      end
+
+      def print_results
+        puts [fn_source, fn_execution_time, fn_action, fn_signature].join " | "
+
+        if @@t_total > config.t_max && action == :execute
+          puts colorize "max execution time of #{config.t_max}ms reached for"\
+            " function `#{fn_name}`", :red
+          exit
+        end
       end
     end
 
@@ -110,7 +113,7 @@ module Sass
     alias_method :_visit_function, :visit_function
 
     def visit_function(node)
-      Sass::Prof.new node.dup, :declare
+      Sass::Prof::Profiler.new node.dup, :declare
       _visit_function node
     end
   end
@@ -119,7 +122,7 @@ module Sass
     alias_method :_perform_sass_fn, :perform_sass_fn
 
     def perform_sass_fn(function, args, splat, environment)
-      Sass::Prof.new function.dup, :execute, args.dup, environment.dup
+      Sass::Prof::Profiler.new function.dup, :execute, args.dup, environment.dup
       _perform_sass_fn function, args, splat, environment
     end
   end
