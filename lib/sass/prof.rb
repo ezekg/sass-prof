@@ -4,13 +4,13 @@ module Sass
   module Prof
 
     class Profiler
-      attr_accessor :settings, :function, :action, :args, :env
+      attr_accessor :config, :function, :action, :args, :env
 
       @@t_then = Time.now
       @@t_now  = Time.now
 
       def initialize(function, action, args = nil, env = nil)
-        @settings = Sass::Prof::Config
+        @config   = Sass::Prof::Config
         @function = function
         @action   = action
         @args     = args
