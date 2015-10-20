@@ -17,15 +17,15 @@ module Sass
         @env      = env
       end
 
-      def print_results
-        results = [fn_source, fn_execution_time, fn_action,
-          fn_signature].join " | "
+      def print_report
+        report = to_table [fn_source, fn_execution_time, fn_action,
+          fn_signature]
 
-        puts results unless config.quiet
+        puts report unless config.quiet
 
         if config.output_file
           File.open(config.output_file, "a+") { |f|
-            f.puts results.gsub /\e\[(\d+)(;\d+)*m/, "" }
+            f.puts report.gsub /\e\[(\d+)(;\d+)*m/, "" }
         end
 
         if @@t_total > config.t_max && action == :execute
@@ -44,7 +44,7 @@ module Sass
 
         @@t_then, @@t_total = @@t_now, t_delta
 
-        colorize(t_delta.to_s, :red).ljust 40
+        colorize t_delta.to_s, :red
       end
 
       def fn_name
@@ -68,12 +68,12 @@ module Sass
         orig_filename = env.options.fetch :original_filename, "unknown file"
         filename      = env.options.fetch :filename, "unknown file"
 
-        colorize("#{File.basename(orig_filename)}:#{File.basename(filename)}",
-          :yellow).ljust 80
+        colorize "#{File.basename(orig_filename)}:#{File.basename(filename)}",
+          :yellow
       end
 
       def fn_action
-        colorize(action.to_s, :green).ljust 40
+        colorize action.to_s, :green
       end
 
       def fn_signature
@@ -95,6 +95,17 @@ module Sass
         })
 
         "\e[0;#{colors.fetch(color)}m#{string}\e[0m"
+      end
+
+      def to_table(a, cs = 12)
+        report = []
+
+        report << " " * 5 + a[0].enum_for(:each_with_index).map { |e, i|
+          "%#{cs}s" % [i + 1, " "] }.join("   ")
+        report << a.enum_for(:each_with_index).map { |ia, i|
+          "%2i [ %s ]" % [i + 1, ia.map{|e| "%#{cs}s" % e }.join(" | ")] }
+
+        report.join "\n"
       end
     end
 
@@ -128,7 +139,7 @@ module Sass
     alias_method :_visit_function, :visit_function
 
     def visit_function(node)
-      Sass::Prof::Profiler.new(node.dup, :declare).print_results
+      Sass::Prof::Profiler.new(node.dup, :declare).print_report
       _visit_function node
     end
   end
@@ -138,7 +149,7 @@ module Sass
 
     def perform_sass_fn(function, args, splat, environment)
       Sass::Prof::Profiler.new(function.dup, :execute, args.dup,
-        environment.dup).print_results
+        environment.dup).print_report
       _perform_sass_fn function, args, splat, environment
     end
   end
