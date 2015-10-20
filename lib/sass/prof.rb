@@ -1,7 +1,7 @@
 require "sass/prof/version"
 
 module Sass
-  module Prof
+  class Prof
     attr_accessor :settings, :function, :action, :args, :env
 
     @@t_then = Time.now
