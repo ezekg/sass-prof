@@ -98,8 +98,8 @@ module Sass
         "\e[0;#{colors.fetch(color)}m#{string}\e[0m"
       end
 
-      def to_table(columns, cs = 12)
-        "[ %s ]" % columns.map { |col| "%#{cs}s" % col }.join(" | ")
+      def to_table(columns, width = 20)
+        "[ %s ]" % columns.map { |col| "%#{width}s" % col }.join(" | ")
       end
     end
 
