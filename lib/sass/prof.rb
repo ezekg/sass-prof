@@ -69,11 +69,11 @@ module Sass
       end
 
       def fn_signature
-        colorize(fn_name, :blue) + colorize(fn_args, :black)
+        colorize(fn_name, :blue).to_s << colorize(fn_args, :black)
       end
 
       def colorize(string, color)
-        return unless string
+        return if string.nil?
         return string unless config.color
 
         colors = Hash.new("37").merge({
