@@ -64,7 +64,7 @@ module Sass
       end
 
       def fn_source
-        return colorize("unknown file", :red).ljust 80 unless env
+        return colorize("unknown file", :red) unless env
 
         orig_filename = env.options.fetch :original_filename, "unknown file"
         filename      = env.options.fetch :filename, "unknown file"
