@@ -31,6 +31,10 @@ prof = Sass::Prof::Config
 # Default is `false`
 prof.output_file = "sass-prof.log"
 
+# Adjust output table column width
+# Default is `20`
+prof.col_width = 40
+
 # Mutes all output to stdout
 # Default is `false`
 prof.quiet = true
