@@ -56,5 +56,4 @@ _Please note: your compile times **will be slower** due to the overhead of **Sas
 
 ## Todo
 
-- [ ] Some functions do not show any arguments even though given
 - [ ] Support `@mixin`'s
