@@ -99,7 +99,7 @@ module Sass
       end
 
       def to_table(columns, width = 20)
-        "[ %s ]" % columns.map { |col| "%#{width}s" % col }.join(" | ")
+        "[ %s ]" % columns.map { |col| "%-#{width}d" % col }.join(" | ")
       end
     end
 
