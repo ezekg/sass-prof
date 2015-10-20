@@ -15,9 +15,19 @@ module Sass
         @action   = action
         @args     = args
         @env      = env
-
-        print_results
       end
+
+      def print_results
+        puts [fn_source, fn_execution_time, fn_action, fn_signature].join " | "
+
+        if @@t_total > config.t_max && action == :execute
+          puts colorize "max execution time of #{config.t_max}ms reached for"\
+            " function `#{fn_name}`", :red
+          exit
+        end
+      end
+
+      private
 
       def fn_execution_time
         @@t_now = Time.now
@@ -29,7 +39,7 @@ module Sass
         colorize(t_delta.to_s, :red).ljust 40
       end
 
-      def fn_name(function)
+      def fn_name
         case
         when function.respond_to?(:name)
           function.name
@@ -62,8 +72,6 @@ module Sass
         colorize(fn_name, :blue) + colorize(fn_args, :black)
       end
 
-      private
-
       def colorize(string, color)
         return unless string
         return string unless config.color
@@ -80,16 +88,6 @@ module Sass
         })
 
         "\e[0;#{colors.fetch(color)}m#{string}\e[0m"
-      end
-
-      def print_results
-        puts [fn_source, fn_execution_time, fn_action, fn_signature].join " | "
-
-        if @@t_total > config.t_max && action == :execute
-          puts colorize "max execution time of #{config.t_max}ms reached for"\
-            " function `#{fn_name}`", :red
-          exit
-        end
       end
     end
 
@@ -113,7 +111,7 @@ module Sass
     alias_method :_visit_function, :visit_function
 
     def visit_function(node)
-      Sass::Prof::Profiler.new node.dup, :declare
+      Sass::Prof::Profiler.new(node.dup, :declare).print_results
       _visit_function node
     end
   end
@@ -122,7 +120,8 @@ module Sass
     alias_method :_perform_sass_fn, :perform_sass_fn
 
     def perform_sass_fn(function, args, splat, environment)
-      Sass::Prof::Profiler.new function.dup, :execute, args.dup, environment.dup
+      Sass::Prof::Profiler.new(function.dup, :execute, args.dup,
+        environment.dup).print_results
       _perform_sass_fn function, args, splat, environment
     end
   end
