@@ -98,16 +98,22 @@ module Sass
         "\e[0;#{colors.fetch(color)}m#{string}\e[0m"
       end
 
-      def to_table(columns, width = 20)
-        "[ %s ]" % columns.map { |col| "%-#{width}s" % col }.join(" | ")
+      def to_table(columns)
+        "[ %s ]" % columns.map { |col|
+          "%-#{config.col_width}s" % col }.join(" | ")
       end
     end
 
     module Config
-      attr_accessor :t_max, :output_file, :quiet, :color
+      attr_accessor :t_max, :col_width, :output_file, :quiet, :color
 
       def t_max
         @t_max ||= 100
+      end
+
+      def col_width
+        @col_width = 20 if @col_width.nil?
+        @col_width
       end
 
       def output_file
