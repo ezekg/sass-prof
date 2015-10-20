@@ -18,7 +18,13 @@ module Sass
       end
 
       def print_results
-        puts [fn_source, fn_execution_time, fn_action, fn_signature].join " | "
+        results = [fn_source, fn_execution_time, fn_action, fn_signature].join " | "
+
+        puts results
+
+        if File.exist? config.output_file
+          File.open(config.output_file, "a") { |f| f.puts results }
+        end
 
         if @@t_total > config.t_max && action == :execute
           puts colorize "max execution time of #{config.t_max}ms reached for"\
@@ -91,10 +97,15 @@ module Sass
     end
 
     module Config
-      attr_accessor :t_max, :color
+      attr_accessor :t_max, :output_file, :color
 
       def t_max
         @t_max ||= 100
+      end
+
+      def output_file
+        @output_file = false if @color.nil?
+        @output_file
       end
 
       def color
