@@ -97,14 +97,8 @@ module Sass
         "\e[0;#{colors.fetch(color)}m#{string}\e[0m"
       end
 
-      def to_table(a, cs = 12)
-        report = []
-
-        report << " " * 5 + a.enum_for(:each_with_index).map { |e, i|
-          "%#{cs}s" % [i + 1, " "] }.join("   ")
-        report << "[ %s ]" % a.map{|e| "%#{cs}s" % e }.join(" | ")
-
-        report.join "\n"
+      def to_table(columns, cs = 12)
+        "[ %s ]" % columns.map { |col| "%#{cs}s" % col }.join " | "
       end
     end
 
