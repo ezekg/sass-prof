@@ -22,8 +22,8 @@ module Sass
 
         puts results
 
-        if File.exist? config.output_file
-          File.open(config.output_file, "a") { |f| f.puts results }
+        if config.output_file
+          File.open(config.output_file, "a+") { |f| f.puts results }
         end
 
         if @@t_total > config.t_max && action == :execute
