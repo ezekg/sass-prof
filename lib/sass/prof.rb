@@ -74,7 +74,7 @@ module Sass
       end
 
       def fn_action
-        colorize action.to_s, :cyan
+        colorize action.to_s, :yellow
       end
 
       def fn_signature
