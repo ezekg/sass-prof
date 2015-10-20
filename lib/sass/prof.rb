@@ -9,10 +9,10 @@ module Sass
 
     def initialize(function, action, args = nil, env = nil)
       @settings = Sass::Prof::Config
-      @function = fn_name
-      @action   = fn_action
-      @args     = fn_args
-      @env      = fn_source
+      @function = function
+      @action   = action
+      @args     = args
+      @env      = env
 
       print_results
     end
@@ -27,7 +27,7 @@ module Sass
       colorize(t_delta.to_s, :red).ljust 40
     end
 
-    def fn_name
+    def fn_name(function)
       case
       when function.respond_to? :name
         function.name
@@ -43,10 +43,10 @@ module Sass
     end
 
     def fn_source
-      return colorize("unknown file", :red).ljust 80 unless @env
+      return colorize("unknown file", :red).ljust 80 unless env
 
-      original_filename = @env.options.fetch :original_filename, "unknown file"
-      filename          = @env.options.fetch :filename, "unknown file"
+      original_filename = env.options.fetch :original_filename, "unknown file"
+      filename          = env.options.fetch :filename, "unknown file"
 
       colorize("#{File.basename(original_filename)}:#{File.basename(filename)}",
         :yellow).ljust 80
@@ -83,9 +83,9 @@ module Sass
     def print_results
       puts [fn_source, fn_execution_time, fn_action, fn_signature].join " | "
 
-      if @@t_total > config.t_max && @action == :execute
+      if @@t_total > config.t_max && action == :execute
         puts colorize "max execution time of #{config.t_max}ms reached for"\
-          " `#{fn_name}`", :red
+          " function `#{fn_name}`", :red
         exit
       end
     end
