@@ -21,7 +21,7 @@ module Sass
         results = [fn_source, fn_execution_time, fn_action,
           fn_signature].join " | "
 
-        puts results
+        puts results unless config.quiet
 
         if config.output_file
           File.open(config.output_file, "a+") { |f|
@@ -99,7 +99,7 @@ module Sass
     end
 
     module Config
-      attr_accessor :t_max, :output_file, :color
+      attr_accessor :t_max, :output_file, :quiet, :color
 
       def t_max
         @t_max ||= 100
@@ -108,6 +108,11 @@ module Sass
       def output_file
         @output_file = false if @output_file.nil?
         @output_file
+      end
+
+      def quiet
+        @quiet = false if @quiet.nil?
+        @quiet
       end
 
       def color

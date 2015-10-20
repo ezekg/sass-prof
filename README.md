@@ -27,10 +27,21 @@ require "sass-prof"
 # Instance of Sass::Prof's configuration
 prof = Sass::Prof::Config
 
-# Available options
-prof.output_file = "sass-prof.log" # Default is `false`
-prof.t_max       = 500             # Default is `100`
-prof.color       = true            # Default is `true`
+# Directs all output to a log file
+# Default is `false`
+prof.output_file = "sass-prof.log"
+
+# Mutes all output to stdout
+# Default is `false`
+prof.quiet = true
+
+# Maximum execution time allowed in ms
+# Default is `100`
+prof.t_max = 500
+
+# Enable colored output
+# Default is `true`
+prof.color = true
 ```
 
 _Please note: your compile times **will be slower** due to the overhead of **Sass Prof**. This library was created to help you find potential bottlenecks within your code. If you find any bugs or inconsistencies, please file an [issue](https://github.com/ezekg/sass-prof/issues) or [pull request](https://github.com/ezekg/sass-prof/pulls)._
