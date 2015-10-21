@@ -65,7 +65,11 @@ module Sass
       def fn_args
         return nil if args.nil?
 
-        args.to_s[1...args.length-2]
+        if args.is_a? Array
+          args.map { |a| a.to_s }.join(", ")
+        else
+          args.to_s[1...args.length-2]
+        end
       end
 
       def fn_source

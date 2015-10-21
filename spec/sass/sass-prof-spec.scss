@@ -1,4 +1,4 @@
-@function test($iterations) {
+@function test($iterations, $dummy-var: "") {
   $result: false;
 
   @for $i from 1 through $iterations {
@@ -10,6 +10,10 @@
 
 @for $i from 1 through 25 {
   test {
-    function: test($i * 10);
+    @if $i % 2 == 0  {
+      function: test($i * 10, "dummy");
+    } @else {
+      function: test($i * 10);
+    }
   }
 }
