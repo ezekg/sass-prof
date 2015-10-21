@@ -3,6 +3,54 @@
 module Sass
   module Prof
 
+    module Config
+      attr_accessor :t_max, :col_width, :output_file, :quiet, :color
+
+      @t_max       = 100
+      @col_width   = 20
+      @output_file = false
+      @quiet       = false
+      @color       = true
+
+      extend self
+    end
+
+    module Report
+      attr_accessor :report
+
+      @report = [
+        ["File", "Execution Time", "Action", "Signature"]
+      ]
+
+      def add(value)
+        @report << value
+      end
+
+      def print_report
+        puts to_table @report
+      end
+
+      def reset_report
+        @report = [
+          ["File", "Execution Time", "Action", "Signature"]
+        ]
+      end
+
+      def to_table(report)
+        return unless report
+
+        table = report.map do |row|
+          "[ %s ]" % row.map { |col|
+            diff = col.length - col.gsub(/\e\[(\d+)(;\d+)*m/, "").length
+            "%-#{Sass::Prof::Config.col_width + diff}s" % col }.join(" | ")
+        end
+
+        table.join "\n"
+      end
+
+      extend self
+    end
+
     class Profiler
       attr_accessor :config, :function, :action, :args, :env
 
@@ -12,28 +60,11 @@ module Sass
 
       def initialize(function, action, args = nil, env = nil)
         @config   = Sass::Prof::Config
+        @report   = Sass::Prof::Report
         @function = function
         @action   = action
         @args     = args
         @env      = env
-      end
-
-      def print_report
-        report = to_table [fn_source, fn_execution_time, fn_action,
-          fn_signature]
-
-        puts report unless config.quiet
-
-        if config.output_file
-          File.open(config.output_file, "a+") { |f|
-            f.puts report.gsub /\e\[(\d+)(;\d+)*m/, "" }
-        end
-
-        if @@t_total > config.t_max && action == :execute
-          puts colorize "Max execution time of #{config.t_max}ms reached for"\
-            " function `#{fn_name}` (took #{@@t_total.round(3)}ms)", :red
-          exit
-        end
       end
 
       def start
@@ -44,9 +75,30 @@ module Sass
         @@t_now = Time.now
         t_delta = (@@t_now.to_f - @@t_then.to_f) * 1000.0
         @@t_then, @@t_total = @@t_now, t_delta
+
+        prep_fn_report
       end
 
       private
+
+      def prep_fn_report
+        fn_report = [fn_source, fn_execution_time, fn_action,
+          fn_signature]
+
+        @report.add fn_report unless config.quiet
+
+        if config.output_file
+          File.open(config.output_file, "a+") do |f|
+            f.puts @report.to_table [fn_report.map { |col|
+              col.gsub /\e\[(\d+)(;\d+)*m/, "" }]
+          end
+        end
+
+        if @@t_total > config.t_max && action == :execute
+          raise Sass::RuntimeError.new "Max execution time of #{config.t_max}ms"\
+            " reached for function `#{fn_name}` (took #{@@t_total.round(3)}ms)"
+        end
+      end
 
       def fn_execution_time
         color = @@t_total > config.t_max ? :red : :green
@@ -58,7 +110,7 @@ module Sass
         when function.respond_to?(:name)
           function.name
         else
-          "unknown function"
+          "Unknown function"
         end
       end
 
@@ -66,17 +118,17 @@ module Sass
         return nil if args.nil?
 
         if args.is_a? Array
-          args.map { |a| a.to_s }.join(", ")
+          args.map { |a| a.inspect }.join(", ")
         else
           args.to_s[1...args.length-2]
         end
       end
 
       def fn_source
-        return colorize("unknown file", :red) unless env
+        return colorize("Unknown file", :red) unless env
 
-        orig_filename = env.options.fetch :original_filename, "unknown file"
-        filename      = env.options.fetch :filename, "unknown file"
+        orig_filename = env.options.fetch :original_filename, "Unknown file"
+        filename      = env.options.fetch :filename, "Unknown file"
 
         colorize "#{File.basename(orig_filename)}:#{File.basename(filename)}",
           :yellow
@@ -106,74 +158,49 @@ module Sass
 
         "\e[0;#{colors.fetch(color)}m#{string}\e[0m"
       end
-
-      def to_table(columns)
-        "[ %s ]" % columns.map { |col|
-          "%-#{config.col_width}s" % col }.join(" | ")
-      end
-    end
-
-    module Config
-      attr_accessor :t_max, :col_width, :output_file, :quiet, :color
-
-      def t_max
-        @t_max ||= 100
-      end
-
-      def col_width
-        @col_width = 20 if @col_width.nil?
-        @col_width
-      end
-
-      def output_file
-        @output_file = false if @output_file.nil?
-        @output_file
-      end
-
-      def quiet
-        @quiet = false if @quiet.nil?
-        @quiet
-      end
-
-      def color
-        @color = true if @color.nil?
-        @color
-      end
-
-      extend self
     end
   end
 
-  # class Tree::Visitors::Perform
-  #   alias_method :_visit_function, :visit_function
-  #
-  #   def visit_function(node)
-  #     prof = Prof::Profiler.new(node.dup, :allocate)
-  #     prof.start
-  #
-  #     res = _visit_function node
-  #
-  #     prof.stop
-  #     prof.print_report
-  #
-  #     res
-  #   end
-  # end
+  class Tree::Visitors::Perform
+    alias_method :__visit_function, :visit_function
+
+    def visit_function(node)
+      prof = Sass::Prof::Profiler.new(node.dup, :allocate)
+      prof.start
+
+      value = __visit_function node
+
+      prof.stop
+
+      value
+    end
+  end
 
   class Script::Tree::Funcall
-    alias_method :_perform_sass_fn, :perform_sass_fn
+    alias_method :__perform_sass_fn, :perform_sass_fn
 
     def perform_sass_fn(function, args, splat, environment)
-      prof = Prof::Profiler.new(function.dup, :execute, args.dup,
+      prof = Sass::Prof::Profiler.new(function.dup, :execute, args.dup,
         environment.dup)
       prof.start
 
-      res = _perform_sass_fn function, args, splat, environment
+      value = __perform_sass_fn(
+        function, args, splat, environment)
 
       prof.stop
-      prof.print_report
 
-      res
+      value
+    end
+  end
+
+  class Engine
+    alias_method :__render, :render
+
+    def render
+      __render
+    ensure
+      Sass::Prof::Report.print_report
+      Sass::Prof::Report.reset_report
     end
   end
 end

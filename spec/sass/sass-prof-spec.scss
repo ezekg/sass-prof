@@ -5,7 +5,16 @@
     $result: not $result;
   }
 
-  @return $result;
+  @return test-2(("key": $result), (1, 2, 3));
+}
+
+@function test-2($map, $list: ()) {
+
+  @each $key, $value in $map {
+    $list: append($list, $value, "comma");
+  }
+
+  @return nth($list, 1);
 }
 
 @for $i from 1 through 50 {
