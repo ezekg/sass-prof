@@ -8,7 +8,7 @@
   @return $result;
 }
 
-@for $i from 1 through 25 {
+@for $i from 1 through 50 {
   test {
     @if $i % 2 == 0  {
       function: test($i * 10, "dummy");
