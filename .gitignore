@@ -1,4 +1,5 @@
 .sass-cache/
+/spec/stylesheets/
 /.bundle/
 /.yardoc
 /Gemfile.lock
