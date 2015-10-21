@@ -95,8 +95,9 @@ module Sass
         end
 
         if @@t_total > config.t_max && action == :execute
-          raise Sass::RuntimeError.new "Max execution time of #{config.t_max}ms"\
-            " reached for function `#{fn_name}` (took #{@@t_total.round(3)}ms)"
+          raise RuntimeError.new colorize(
+            "Max execution time of #{config.t_max}ms reached for function"\
+            " `#{fn_name}` (took #{@@t_total.round(3)}ms)", :red)
         end
       end
 

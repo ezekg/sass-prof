@@ -5,7 +5,7 @@ prof             = Sass::Prof::Config
 # prof.quiet       = true
 prof.col_width   = 40
 prof.color       = true
-prof.t_max       = 250
+prof.t_max       = 5
 
 http_path = "/"
 css_dir   = "stylesheets"
