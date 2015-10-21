@@ -146,10 +146,12 @@ module Sass
       prof = Prof::Profiler.new(node.dup, :allocate)
       prof.start
 
-      _visit_function node
+      res = _visit_function node
 
       prof.stop
       prof.print_report
+
+      res
     end
   end
 
@@ -161,10 +163,12 @@ module Sass
         environment.dup)
       prof.start
 
-      _perform_sass_fn function, args, splat, environment
+      res = _perform_sass_fn function, args, splat, environment
 
       prof.stop
       prof.print_report
+
+      res
     end
   end
 end
