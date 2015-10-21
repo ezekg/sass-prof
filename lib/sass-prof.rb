@@ -7,8 +7,8 @@ module Sass
       attr_accessor :config, :function, :action, :args, :env
 
       @@t_total = 0
-      @@t_then  = Time.now
-      @@t_now   = Time.now
+      @@t_then  = 0
+      @@t_now   = 0
 
       def initialize(function, action, args = nil, env = nil)
         @config   = Sass::Prof::Config
@@ -37,10 +37,11 @@ module Sass
       end
 
       def start
-        @@t_now = Time.now
+        @@t_then = Time.now
       end
 
       def stop
+        @@t_now = Time.now
         t_delta = (@@t_now.to_f - @@t_then.to_f) * 1000.0
         @@t_then, @@t_total = @@t_now, t_delta
       end

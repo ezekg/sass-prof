@@ -1,7 +1,15 @@
-@function test($arg) {
-  @return false;
+@function test($iterations) {
+  $result: false;
+
+  @for $i from 1 through $iterations {
+    $result: not $result;
+  }
+
+  @return $result;
 }
 
-test {
-  function: test("test");
+@for $i from 1 through 25 {
+  test {
+    function: test($i * 10);
+  }
 }
