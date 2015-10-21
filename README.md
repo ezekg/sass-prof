@@ -2,6 +2,8 @@
 
 [![Gem](https://img.shields.io/gem/v/sass-prof.svg?style=flat-square)](https://rubygems.org/gems/sass-prof)
 
+![Sass Prof](screenshot.jpg)
+
 Sass Prof is a code profiler for [Sass](https://github.com/sass/sass). For each function, Sass Prof will show the execution time for the function, which file called it and what arguments were given when the function was called.
 
 ## Requirements
