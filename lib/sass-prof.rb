@@ -139,21 +139,21 @@ module Sass
     end
   end
 
-  class Tree::Visitors::Perform
-    alias_method :_visit_function, :visit_function
-
-    def visit_function(node)
-      prof = Prof::Profiler.new(node.dup, :allocate)
-      prof.start
-
-      res = _visit_function node
-
-      prof.stop
-      prof.print_report
-
-      res
-    end
-  end
+  # class Tree::Visitors::Perform
+  #   alias_method :_visit_function, :visit_function
+  #
+  #   def visit_function(node)
+  #     prof = Prof::Profiler.new(node.dup, :allocate)
+  #     prof.start
+  #
+  #     res = _visit_function node
+  #
+  #     prof.stop
+  #     prof.print_report
+  #
+  #     res
+  #   end
+  # end
 
   class Script::Tree::Funcall
     alias_method :_perform_sass_fn, :perform_sass_fn
