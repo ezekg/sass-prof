@@ -1,7 +1,4 @@
-lib = File.expand_path "../lib/", __FILE__
-$:.unshift lib unless $:.include? lib
-
-require "sass-prof/version"
+# encoding: UTF-8
 
 module Sass
   module Prof
@@ -9,8 +6,9 @@ module Sass
     class Profiler
       attr_accessor :config, :function, :action, :args, :env
 
-      @@t_then = Time.now
-      @@t_now  = Time.now
+      @@t_total = 0
+      @@t_then  = Time.now
+      @@t_now   = Time.now
 
       def initialize(function, action, args = nil, env = nil)
         @config   = Sass::Prof::Config
@@ -38,17 +36,20 @@ module Sass
         end
       end
 
+      def start
+        @@t_now = Time.now
+      end
+
+      def stop
+        t_delta = (@@t_now.to_f - @@t_then.to_f) * 1000.0
+        @@t_then, @@t_total = @@t_now, t_delta
+      end
+
       private
 
       def fn_execution_time
-        @@t_now = Time.now
-
-        t_delta = (@@t_now.to_f - @@t_then.to_f) * 1000.0
-
-        @@t_then, @@t_total = @@t_now, t_delta
-
         color = @@t_total > config.t_max ? :red : :green
-        colorize t_delta.to_s, color
+        colorize @@t_total.to_s, color
       end
 
       def fn_name
@@ -138,22 +139,32 @@ module Sass
     end
   end
 
-  class Tree::Visitors::Perform
-    alias_method :_visit_function, :visit_function
-
-    def visit_function(node)
-      Sass::Prof::Profiler.new(node.dup, :declare).print_report
-      _visit_function node
-    end
-  end
+  # class Tree::Visitors::Perform
+  #   alias_method :_visit_function, :visit_function
+  #
+  #   def visit_function(node)
+  #     prof = Prof::Profiler.new(node.dup, :allocate)
+  #     prof.start
+  #
+  #     _visit_function node
+  #
+  #     prof.stop
+  #     prof.print_report
+  #   end
+  # end
 
   class Script::Tree::Funcall
     alias_method :_perform_sass_fn, :perform_sass_fn
 
     def perform_sass_fn(function, args, splat, environment)
-      Sass::Prof::Profiler.new(function.dup, :execute, args.dup,
-        environment.dup).print_report
+      prof = Prof::Profiler.new(function.dup, :execute, args.dup,
+        environment.dup)
+      prof.start
+
       _perform_sass_fn function, args, splat, environment
+
+      prof.stop
+      prof.print_report
     end
   end
 end

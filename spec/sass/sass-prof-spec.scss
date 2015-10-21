@@ -1,0 +1,7 @@
+@function test($arg) {
+  @return false;
+}
+
+test {
+  function: test("test");
+}
