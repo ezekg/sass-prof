@@ -1,66 +1,125 @@
 # encoding: UTF-8
 
+require "terminal-table"
+
 module Sass
   module Prof
 
     module Config
-      attr_accessor :t_max, :col_width, :output_file, :quiet, :color
+      attr_accessor :t_max
+      attr_accessor :max_width
+      attr_accessor :output_file
+      attr_accessor :quiet
+      attr_accessor :color
+      attr_accessor :precision
+
+      alias_method :max_execution_time=, :t_max=
+      alias_method :max_execution_time,  :t_max
 
       @t_max       = 100
-      @col_width   = 20
+      @max_width   = false
       @output_file = false
       @quiet       = false
       @color       = true
+      @precision   = 15
 
       extend self
     end
 
     module Report
-      attr_accessor :report
+      attr_accessor :rows
 
-      @report = [
-        ["File", "Execution Time", "Action", "Signature"]
-      ]
+      @rows = []
 
-      def add(value)
-        @report << value
-      end
-
-      def print_report
-        puts to_table @report
+      def add_row(row)
+        row = truncate_row row if Prof::Config.max_width
+        @rows << row
       end
 
       def reset_report
-        @report = [
-          ["File", "Execution Time", "Action", "Signature"]
-        ]
+        @rows = []
       end
 
-      def to_table(report)
-        return unless report
+      def print_report
+        log_report if Prof::Config.output_file
+        puts Prof::Formatter.to_table @rows
+      end
 
-        table = report.map do |row|
-          "[ %s ]" % row.map { |col|
-            diff = col.length - col.gsub(/\e\[(\d+)(;\d+)*m/, "").length
-            "%-#{Sass::Prof::Config.col_width + diff}s" % col }.join(" | ")
+      def log_report
+        File.open(Prof::Config.output_file, "a+") do |f|
+          f.puts Prof::Formatter.to_table @rows.map { |r|
+            r.map { |col| col.gsub /\e\[(\d+)(;\d+)*m/, "" } }
+        end
+      end
+
+      private
+
+      def truncate_row(row)
+        max_width = Prof::Config.max_width
+        tr_row = []
+
+        row.map do |col|
+          clean_width = col.gsub(/\e\[(\d+)(;\d+)*m/, "").length
+          diff        = col.length - clean_width
+
+          if clean_width > max_width
+            tr_row << (col[0..max_width + diff] << "\e[0m...")
+          else
+            tr_row << col
+          end
         end
 
-        table.join "\n"
+        tr_row
+      end
+
+      extend self
+    end
+
+    module Formatter
+
+      def colorize(string, color)
+        return string.to_s unless Prof::Config.color
+
+        colors = Hash.new("37").merge({
+          :black  => "30",
+          :red    => "31",
+          :green  => "32",
+          :yellow => "33",
+          :blue   => "34",
+          :purple => "35",
+          :cyan   => "36",
+          :white  => "37",
+        })
+
+        "\e[0;#{colors.fetch(color)}m#{string}\e[0m"
+      end
+
+      def to_table(rows)
+
+        # Add total execution time footer
+        rows << :separator
+        rows << ["Total Execution Time", rows.map { |c|
+          c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }.reduce(:+)]
+
+        table = Terminal::Table.new({
+          :headings => ["File", "Execution Time", "Action", "Signature"],
+          :rows     => rows
+        })
+
+        table
       end
 
       extend self
     end
 
     class Profiler
-      attr_accessor :config, :function, :action, :args, :env
+      attr_accessor :function, :action, :args, :env
 
       @@t_total = 0
       @@t_then  = 0
       @@t_now   = 0
 
       def initialize(function, action, args = nil, env = nil)
-        @config   = Sass::Prof::Config
-        @report   = Sass::Prof::Report
         @function = function
         @action   = action
         @args     = args
@@ -85,25 +144,19 @@ module Sass
         fn_report = [fn_source, fn_execution_time, fn_action,
           fn_signature]
 
-        @report.add fn_report unless config.quiet
+        Prof::Report.add_row fn_report unless Prof::Config.quiet
 
-        if config.output_file
-          File.open(config.output_file, "a+") do |f|
-            f.puts @report.to_table [fn_report.map { |col|
-              col.gsub /\e\[(\d+)(;\d+)*m/, "" }]
-          end
-        end
-
-        if @@t_total > config.t_max && action == :execute
-          raise RuntimeError.new colorize(
-            "Max execution time of #{config.t_max}ms reached for function"\
-            " `#{fn_name}` (took #{@@t_total.round(3)}ms)", :red)
+        if @@t_total > Prof::Config.t_max && action == :execute
+          raise RuntimeError.new Prof::Formatter.colorize(
+            "Max execution time of #{Prof::Config.t_max}ms reached for function"\
+            " `#{fn_name}()` (took #{@@t_total.round(3)}ms)", :red)
         end
       end
 
       def fn_execution_time
-        color = @@t_total > config.t_max ? :red : :green
-        colorize @@t_total.to_s, color
+        color = @@t_total > Prof::Config.t_max ? :red : :green
+        Prof::Formatter.colorize @@t_total.round(
+          Prof::Config.precision).to_s, color
       end
 
       def fn_name
@@ -126,47 +179,32 @@ module Sass
       end
 
       def fn_source
-        return colorize("Unknown file", :red) unless env
+        return Prof::Formatter.colorize("Unknown file", :red) unless env
 
         orig_filename = env.options.fetch :original_filename, "Unknown file"
         filename      = env.options.fetch :filename, "Unknown file"
 
-        colorize "#{File.basename(orig_filename)}:#{File.basename(filename)}",
-          :yellow
+        Prof::Formatter.colorize "#{File.basename(orig_filename)}:"\
+          "#{File.basename(filename)}", :yellow
       end
 
       def fn_action
-        colorize action.to_s, :yellow
+        Prof::Formatter.colorize action.capitalize, :yellow
       end
 
       def fn_signature
-        colorize(fn_name, :blue) << "(" << colorize(fn_args, :purple) << ")"
-      end
-
-      def colorize(string, color)
-        return string unless config.color
-
-        colors = Hash.new("37").merge({
-          :black  => "30",
-          :red    => "31",
-          :green  => "32",
-          :yellow => "33",
-          :blue   => "34",
-          :purple => "35",
-          :cyan   => "36",
-          :white  => "37",
-        })
-
-        "\e[0;#{colors.fetch(color)}m#{string}\e[0m"
+        "#{Prof::Formatter.colorize(fn_name, :blue)}"\
+        "(#{Prof::Formatter.colorize(fn_args, :purple)})"
       end
     end
   end
 
+  # Monkey patch Sass to utilize Profiler
   class Tree::Visitors::Perform
     alias_method :__visit_function, :visit_function
 
     def visit_function(node)
-      prof = Sass::Prof::Profiler.new(node.dup, :allocate)
+      prof = Prof::Profiler.new(node.dup, :allocate)
       prof.start
 
       value = __visit_function node
@@ -181,7 +219,7 @@ module Sass
     alias_method :__perform_sass_fn, :perform_sass_fn
 
     def perform_sass_fn(function, args, splat, environment)
-      prof = Sass::Prof::Profiler.new(function.dup, :execute, args.dup,
+      prof = Prof::Profiler.new(function.dup, :execute, args.dup,
         environment.dup)
       prof.start
 

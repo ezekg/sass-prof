@@ -33,9 +33,9 @@ prof = Sass::Prof::Config
 # Default is `false`
 prof.output_file = "sass-prof.log"
 
-# Adjust output table column width
-# Default is `20`
-prof.col_width = 40
+# Adjust max column width
+# Default is `false`
+prof.max_width = 40
 
 # Mutes all output to stdout
 # Default is `false`
@@ -45,9 +45,16 @@ prof.quiet = true
 # Default is `100`
 prof.t_max = 500
 
+# Alias for `t_max`
+prof.max_execution_time = 15
+
 # Enable colored output
 # Default is `true`
 prof.color = true
+
+# Execution time precision
+# Default is `15`
+prof.precision = 5
 ```
 
 _Please note: your compile times **will be slower** due to the overhead of **Sass Prof**. This library was created to help you find potential bottlenecks within your code. If you find any bugs or inconsistencies, please file an [issue](https://github.com/ezekg/sass-prof/issues) or [pull request](https://github.com/ezekg/sass-prof/pulls)._
