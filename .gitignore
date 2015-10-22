@@ -1,3 +1,4 @@
+*.log
 .sass-cache/
 /spec/stylesheets/
 /.bundle/
