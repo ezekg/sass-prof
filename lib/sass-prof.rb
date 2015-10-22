@@ -76,13 +76,15 @@ module Sass
 
       def to_table(rows)
         t_ms = rows.map { |c|
-          c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }.reduce(:+)
+          c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }.reduce :+
 
-        if t_ms > 1000
+        if t_ms.nil?
+          t = Prof::Formatter.colorize "Unknown", :red
+        elsif t_ms > 1000
           t_sec = t_ms / 1000 % 60
-          t = "#{t_sec.round(Prof::Config.precision - 1)}s"
+          t = "%.#{Prof::Config.precision - 1}fs" % t_sec
         else
-          t = "#{t_ms.round(Prof::Config.precision - 2)}ms"
+          t = "%.#{Prof::Config.precision - 2}fms" % t_ms
         end
 
         # Add total execution time footer
@@ -160,9 +162,9 @@ module Sass
       end
 
       def fn_execution_time
-        color = @@t_total > Prof::Config.t_max ? :red : :green
-        Prof::Formatter.colorize @@t_total.round(
-          Prof::Config.precision).to_s, color
+        color  = @@t_total > Prof::Config.t_max ? :red : :green
+        t_exec = "%.#{Prof::Config.precision}f" % @@t_total
+        Prof::Formatter.colorize t_exec, color
       end
 
       def fn_name

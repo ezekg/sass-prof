@@ -1,11 +1,13 @@
 @function test($iterations, $dummy-var: "") {
   $result: false;
+  $map: ();
 
   @for $i from 1 through $iterations {
+    $map: map-merge($map, ("key-#{$i}": $result));
     $result: not $result;
   }
 
-  @return test-2(("key": $result), (1, 2, 3));
+  @return test-2($map, (1, 2, 3));
 }
 
 @function test-2($map, $list: ()) {
@@ -17,7 +19,7 @@
   @return nth($list, 1);
 }
 
-@for $i from 1 through 500 {
+@for $i from 1 through 100 {
   test {
     @if $i % 2 == 0  {
       function: test($i * 10, "dummy");
