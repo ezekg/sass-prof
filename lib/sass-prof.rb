@@ -75,12 +75,19 @@ module Sass
       end
 
       def to_table(rows)
-        t_total_in_seconds = rows.map { |c|
-          c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }.reduce(:+) / 1000 % 60
+        t_ms = rows.map { |c|
+          c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }.reduce(:+)
+
+        if t_ms > 1000
+          t_sec = t_ms / 1000 % 60
+          t = "#{t_sec.round(Prof::Config.precision - 1)}s"
+        else
+          t = "#{t_ms.round(Prof::Config.precision - 2)}ms"
+        end
 
         # Add total execution time footer
         rows << :separator
-        rows << ["Total Execution Time", t_total_in_seconds]
+        rows << ["Total", t]
 
         table = Terminal::Table.new({
           :headings => ["File", "Execution Time", "Action", "Signature"],
