@@ -1,0 +1,856 @@
++-----------------------------------------+--------------------+----------+-----------------------------------+
+| File                                    | Execution Time     | Action   | Signature                         |
++-----------------------------------------+--------------------+----------+-----------------------------------+
+| Unknown file                            | 0.045061111450195  | Allocate | test()                            |
+| Unknown file                            | 0.01215934753418   | Allocate | test-2()                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.153779983520508  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.097036361694336  | Execute  | test(10)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091791152954102  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.060081481933594  | Execute  | test(20, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.084877014160156  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.054121017456055  | Execute  | test(30)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08702278137207   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.055074691772461  | Execute  | test(40, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.085830688476563  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.055074691772461  | Execute  | test(50)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.094175338745117  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.052928924560547  | Execute  | test(60, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092029571533203  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.053882598876953  | Execute  | test(70)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.125885009765625  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079870223999023  | Execute  | test(80, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.110864639282227  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.060796737670898  | Execute  | test(90)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092983245849609  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.060081481933594  | Execute  | test(100, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088930130004883  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.057220458984375  | Execute  | test(110)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079154968261719  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.051975250244141  | Execute  | test(120, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.053167343139648  | Execute  | test(130)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079154968261719  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056982040405273  | Execute  | test(140, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.129938125610352  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082015991210938  | Execute  | test(150)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091075897216797  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.060796737670898  | Execute  | test(160, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.080108642578125  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066041946411133  | Execute  | test(170)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078201293945313  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.051975250244141  | Execute  | test(180, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.087976455688477  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.051975250244141  | Execute  | test(190)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.086069107055664  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.051021575927734  | Execute  | test(200, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.063896179199219  | Execute  | test(210)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072956085205078  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.061273574829102  | Execute  | test(220, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08702278137207   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.047922134399414  | Execute  | test(230)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082254409790039  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.057697296142578  | Execute  | test(240, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.17094612121582   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.109195709228516  | Execute  | test(250)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.108003616333008  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.085115432739258  | Execute  | test(260, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.135183334350586  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.18310546875      | Execute  | test(270)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.111818313598633  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.069141387939453  | Execute  | test(280, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.053167343139648  | Execute  | test(290)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.087976455688477  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.051975250244141  | Execute  | test(300, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.051975250244141  | Execute  | test(310)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.109195709228516  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.084877014160156  | Execute  | test(320, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.095129013061523  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168   | Execute  | test(330)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081062316894531  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059127807617188  | Execute  | test(340, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078201293945313  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.053882598876953  | Execute  | test(350)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.051975250244141  | Execute  | test(360, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.10228157043457   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.054836273193359  | Execute  | test(370)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.105857849121094  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.065088272094727  | Execute  | test(380, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078201293945313  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.050783157348633  | Execute  | test(390)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.100135803222656  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867  | Execute  | test(400, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077009201049805  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398  | Execute  | test(410)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079870223999023  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070810317993164  | Execute  | test(420, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089883804321289  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.051021575927734  | Execute  | test(430)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.086069107055664  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05030632019043   | Execute  | test(440, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088214874267578  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.054836273193359  | Execute  | test(450)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.138044357299805  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 13.212919235229492 | Execute  | test(460, "dummy")                |
++-----------------------------------------+--------------------+----------+-----------------------------------+
+| Total Execution Time                    | 20.51782608032227  |
++-----------------------------------------+--------------------+----------+-----------------------------------+
++-----------------------------------------+----------------------+----------+-----------------------------------+
+| File                                    | Execution Time       | Action   | Signature                         |
++-----------------------------------------+----------------------+----------+-----------------------------------+
+| Unknown file                            | 0.027894973754883    | Allocate | test()                            |
+| Unknown file                            | 0.006914138793945    | Allocate | test-2()                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.128984451293945    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.090122222900391    | Execute  | test(10)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.137090682983398    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082969665527344    | Execute  | test(20, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.07176399230957     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058174133300781    | Execute  | test(30)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.073909759521484    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.054121017456055    | Execute  | test(40, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.07176399230957     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.068187713623047    | Execute  | test(50)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058174133300781    | Execute  | test(60, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(70)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.087738037109375    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(80, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082731246948242    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056266784667969    | Execute  | test(90)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.095129013061523    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.071048736572266    | Execute  | test(100, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067710876464844    | Execute  | test(110)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.1068115234375      | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.071048736572266    | Execute  | test(120, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.073909759521484    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168     | Execute  | test(130)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081777572631836    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059127807617188    | Execute  | test(140, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.055074691772461    | Execute  | test(150)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08702278137207     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(160, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08392333984375     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168     | Execute  | test(170)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.054836273193359    | Execute  | test(180, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056982040405273    | Execute  | test(190)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(200, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.086069107055664    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.054836273193359    | Execute  | test(210)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092744827270508    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056266784667969    | Execute  | test(220, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(230)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(240, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.138044357299805    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.090837478637695    | Execute  | test(250)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.118017196655273    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076770782470703    | Execute  | test(260, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.150918960571289    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078916549682617    | Execute  | test(270)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.114917755126953    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081062316894531    | Execute  | test(280, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074863433837891    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066041946411133    | Execute  | test(290)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089168548583984    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168     | Execute  | test(300, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076770782470703    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058174133300781    | Execute  | test(310)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082015991210938    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.063180923461914    | Execute  | test(320, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089168548583984    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056982040405273    | Execute  | test(330)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.073909759521484    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070095062255859    | Execute  | test(340, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088214874267578    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(350)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.073909759521484    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(360, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066995620727539    | Execute  | test(370)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092029571533203    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.052928924560547    | Execute  | test(380, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.101089477539063    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.055789947509766    | Execute  | test(390)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.087738037109375    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058174133300781    | Execute  | test(400, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082015991210938    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066041946411133    | Execute  | test(410)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.132083892822266    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.09608268737793     | Execute  | test(420, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.138998031616211    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089883804321289    | Execute  | test(430)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.090122222900391    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168     | Execute  | test(440, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.080108642578125    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058889389038086    | Execute  | test(450)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074863433837891    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test(460, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.090122222900391    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(470)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072956085205078    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(480, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.097036361694336    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.065088272094727    | Execute  | test(490)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059127807617188    | Execute  | test(500, "dummy")                |
++-----------------------------------------+----------------------+----------+-----------------------------------+
+| Total Execution Time                    | 0.007731199264526365 |
++-----------------------------------------+----------------------+----------+-----------------------------------+
++-----------------------------------------+----------------------+----------+-----------------------------------+
+| File                                    | Execution Time       | Action   | Signature                         |
++-----------------------------------------+----------------------+----------+-----------------------------------+
+| Unknown file                            | 0.0457763671875      | Allocate | test()                            |
+| Unknown file                            | 0.012874603271484    | Allocate | test-2()                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.164031982421875    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.097036361694336    | Execute  | test(10)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088214874267578    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.073909759521484    | Execute  | test(20, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08702278137207     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074863433837891    | Execute  | test(30)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.128030776977539    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077962875366211    | Execute  | test(40, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092983245849609    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075817108154297    | Execute  | test(50)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.093936920166016    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066995620727539    | Execute  | test(60, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.083208084106445    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.064849853515625    | Execute  | test(70)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.172853469848633    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.07319450378418     | Execute  | test(80, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.090122222900391    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067710876464844    | Execute  | test(90)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092983245849609    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067949295043945    | Execute  | test(100, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.080108642578125    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059843063354492    | Execute  | test(110)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077962875366211    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.061988830566406    | Execute  | test(120, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08082389831543     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058174133300781    | Execute  | test(130)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077962875366211    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059843063354492    | Execute  | test(140, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.14495849609375     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.100135803222656    | Execute  | test(150)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.134944915771484    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.168085098266602    | Execute  | test(160, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.090837478637695    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081300735473633    | Execute  | test(170)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089168548583984    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056982040405273    | Execute  | test(180, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.103950500488281    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.069141387939453    | Execute  | test(190)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091791152954102    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168     | Execute  | test(200, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.068187713623047    | Execute  | test(210)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082969665527344    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074148178100586    | Execute  | test(220, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.106096267700195    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.064849853515625    | Execute  | test(230)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.149011611938477    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.094890594482422    | Execute  | test(240, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.116109848022461    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077724456787109    | Execute  | test(250)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.108003616333008    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088214874267578    | Execute  | test(260, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.115156173706055    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.133991241455078    | Execute  | test(270)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092983245849609    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.069141387939453    | Execute  | test(280, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081062316894531    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076770782470703    | Execute  | test(290)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091791152954102    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078916549682617    | Execute  | test(300, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.110864639282227    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.097036361694336    | Execute  | test(310)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.095844268798828    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08702278137207     | Execute  | test(320, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.114202499389648    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070810317993164    | Execute  | test(330)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091791152954102    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(340, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091075897216797    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056743621826172    | Execute  | test(350)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08392333984375     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.071287155151367    | Execute  | test(360, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077009201049805    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088930130004883    | Execute  | test(370)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088930130004883    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.054121017456055    | Execute  | test(380, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.087738037109375    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test(390)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.104904174804688    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.080108642578125    | Execute  | test(400, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.10228157043457     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.062942504882813    | Execute  | test(410)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079154968261719    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056743621826172    | Execute  | test(420, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092029571533203    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074863433837891    | Execute  | test(430)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.104904174804688    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077009201049805    | Execute  | test(440, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.098228454589844    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067710876464844    | Execute  | test(450)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.11134147644043     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.105857849121094    | Execute  | test(460, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.135898590087891    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.118017196655273    | Execute  | test(470)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079870223999023    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058174133300781    | Execute  | test(480, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.129938125610352    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072956085205078    | Execute  | test(490)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077962875366211    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(500, "dummy")                |
++-----------------------------------------+----------------------+----------+-----------------------------------+
+| Total Execution Time                    | 0.008929729461669924 |
++-----------------------------------------+----------------------+----------+-----------------------------------+
++-----------------------------------------+---------------------+----------+-----------------------------------+
+| File                                    | Execution Time      | Action   | Signature                         |
++-----------------------------------------+---------------------+----------+-----------------------------------+
+| Unknown file                            | 0.047922134399414   | Allocate | test()                            |
+| Unknown file                            | 0.013828277587891   | Allocate | test-2()                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.166177749633789   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.104904174804688   | Execute  | test(10)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.085830688476563   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070095062255859   | Execute  | test(20, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.086069107055664   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072956085205078   | Execute  | test(30)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091075897216797   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.062942504882813   | Execute  | test(40, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081777572631836   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066280364990234   | Execute  | test(50)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092983245849609   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066995620727539   | Execute  | test(60, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082731246948242   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.06413459777832    | Execute  | test(70)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091791152954102   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.071287155151367   | Execute  | test(80, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08702278137207    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.063896179199219   | Execute  | test(90)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.14495849609375    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.173091888427734   | Execute  | test(100, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.09918212890625    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.090837478637695   | Execute  | test(110)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08082389831543    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.100135803222656   | Execute  | test(120, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082254409790039   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.064611434936523   | Execute  | test(130)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.084161758422852   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.064849853515625   | Execute  | test(140, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082015991210938   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.060081481933594   | Execute  | test(150)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.080347061157227   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.060796737670898   | Execute  | test(160, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067949295043945   | Execute  | test(170)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.113964080810547   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.065088272094727   | Execute  | test(180, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08702278137207    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058174133300781   | Execute  | test(190)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082969665527344   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058174133300781   | Execute  | test(200, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077009201049805   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066995620727539   | Execute  | test(210)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076770782470703   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.105142593383789   | Execute  | test(220, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.084161758422852   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056743621826172   | Execute  | test(230)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.186920166015625   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.177145004272461   | Execute  | test(240, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.118017196655273   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.104904174804688   | Execute  | test(250)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.094890594482422   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.105857849121094   | Execute  | test(260, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.103950500488281   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.103950500488281   | Execute  | test(270)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.102996826171875   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070095062255859   | Execute  | test(280, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077962875366211   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066995620727539   | Execute  | test(290)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077962875366211   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088930130004883   | Execute  | test(300, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.110149383544922   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.094890594482422   | Execute  | test(310)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077724456787109   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072956085205078   | Execute  | test(320, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.113964080810547   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08082389831543    | Execute  | test(330)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.103950500488281   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066995620727539   | Execute  | test(340, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.097036361694336   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058889389038086   | Execute  | test(350)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077724456787109   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072956085205078   | Execute  | test(360, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082731246948242   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.093221664428711   | Execute  | test(370)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089883804321289   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867   | Execute  | test(380, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077247619628906   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.069856643676758   | Execute  | test(390)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.09918212890625    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.061750411987305   | Execute  | test(400, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.103950500488281   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067234039306641   | Execute  | test(410)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077009201049805   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056982040405273   | Execute  | test(420, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091075897216797   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.065088272094727   | Execute  | test(430)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.109672546386719   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.084161758422852   | Execute  | test(440, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.097990036010742   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.069856643676758   | Execute  | test(450)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.110864639282227   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.098943710327148   | Execute  | test(460, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.117063522338867   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070810317993164   | Execute  | test(470)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078201293945313   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.055074691772461   | Execute  | test(480, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.109195709228516   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.054597854614258   | Execute  | test(490)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077724456787109   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.055074691772461   | Execute  | test(500, "dummy")                |
++-----------------------------------------+---------------------+----------+-----------------------------------+
+| Total Execution Time                    | 0.00870323181152344 |
++-----------------------------------------+---------------------+----------+-----------------------------------+
++-----------------------------------------+-------------------+----------+-----------------------------------+
+| File                                    | Execution Time    | Action   | Signature                         |
++-----------------------------------------+-------------------+----------+-----------------------------------+
+| Unknown file                            | 0.041007995605469 | Allocate | test()                            |
+| Unknown file                            | 0.01215934753418  | Allocate | test-2()                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.172853469848633 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.108003616333008 | Execute  | test(10)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092267990112305 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.069856643676758 | Execute  | test(20, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.097990036010742 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08392333984375  | Execute  | test(30)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.103950500488281 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074863433837891 | Execute  | test(40, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082254409790039 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070810317993164 | Execute  | test(50)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.09608268737793  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.069141387939453 | Execute  | test(60, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082969665527344 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.062942504882813 | Execute  | test(70)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.09608268737793  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072956085205078 | Execute  | test(80, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091791152954102 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067234039306641 | Execute  | test(90)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.104904174804688 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077247619628906 | Execute  | test(100, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082015991210938 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058174133300781 | Execute  | test(110)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079870223999023 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.06103515625     | Execute  | test(120, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081300735473633 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059843063354492 | Execute  | test(130)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.123262405395508 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.140666961669922 | Execute  | test(140, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.095129013061523 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078916549682617 | Execute  | test(150)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08702278137207  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.065803527832031 | Execute  | test(160, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.080108642578125 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.068902969360352 | Execute  | test(170)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.098705291748047 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067234039306641 | Execute  | test(180, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08702278137207  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058889389038086 | Execute  | test(190)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.090122222900391 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168  | Execute  | test(200, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082969665527344 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992 | Execute  | test(210)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076770782470703 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067949295043945 | Execute  | test(220, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089168548583984 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.055074691772461 | Execute  | test(230)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.152111053466797 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.123023986816406 | Execute  | test(240, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.20599365234375  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092983245849609 | Execute  | test(250)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.099897384643555 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082969665527344 | Execute  | test(260, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.112056732177734 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.09608268737793  | Execute  | test(270)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.099658966064453 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.065088272094727 | Execute  | test(280, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.080108642578125 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.068902969360352 | Execute  | test(290)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079154968261719 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066995620727539 | Execute  | test(300, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.111103057861328 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.09608268737793  | Execute  | test(310)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.080108642578125 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.069856643676758 | Execute  | test(320, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092983245849609 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058889389038086 | Execute  | test(330)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.100851058959961 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.068187713623047 | Execute  | test(340, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089883804321289 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058174133300781 | Execute  | test(350)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082015991210938 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.073909759521484 | Execute  | test(360, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092744827270508 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.108003616333008 | Execute  | test(370)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.094175338745117 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056982040405273 | Execute  | test(380, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078201293945313 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067949295043945 | Execute  | test(390)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.09608268737793  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168  | Execute  | test(400, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.100851058959961 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867 | Execute  | test(410)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078201293945313 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059843063354492 | Execute  | test(420, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.085830688476563 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.062942504882813 | Execute  | test(430)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.166177749633789 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.14495849609375  | Execute  | test(440, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.247955322265625 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.159025192260742 | Execute  | test(450)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.14805793762207  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.243902206420898 | Execute  | test(460, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.150918960571289 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.104904174804688 | Execute  | test(470)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.11897087097168  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082015991210938 | Execute  | test(480, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.169992446899414 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092029571533203 | Execute  | test(490)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.127077102661133 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091791152954102 | Execute  | test(500, "dummy")                |
++-----------------------------------------+-------------------+----------+-----------------------------------+
+| Total Execution Time                    | 1970-01-01        |
++-----------------------------------------+-------------------+----------+-----------------------------------+
++-----------------------------------------+----------------------+----------+-----------------------------------+
+| File                                    | Execution Time       | Action   | Signature                         |
++-----------------------------------------+----------------------+----------+-----------------------------------+
+| Unknown file                            | 0.058889389038086    | Allocate | test()                            |
+| Unknown file                            | 0.011920928955078    | Allocate | test-2()                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.166177749633789    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.10991096496582     | Execute  | test(10)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.084161758422852    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070095062255859    | Execute  | test(20, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.085115432739258    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.071048736572266    | Execute  | test(30)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.086784362792969    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.061273574829102    | Execute  | test(40, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082969665527344    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066041946411133    | Execute  | test(50)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.102043151855469    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078916549682617    | Execute  | test(60, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081062316894531    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.063896179199219    | Execute  | test(70)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091791152954102    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.071287155151367    | Execute  | test(80, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089168548583984    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066757202148438    | Execute  | test(90)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.101804733276367    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test(100, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079154968261719    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.060796737670898    | Execute  | test(110)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.138044357299805    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.085115432739258    | Execute  | test(120, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077962875366211    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059127807617188    | Execute  | test(130)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.073909759521484    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.062942504882813    | Execute  | test(140, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.094890594482422    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.06413459777832     | Execute  | test(150)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082969665527344    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056028366088867    | Execute  | test(160, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.102996826171875    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.138998031616211    | Execute  | test(170)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092983245849609    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072956085205078    | Execute  | test(180, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088691711425781    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059127807617188    | Execute  | test(190)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.086784362792969    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059127807617188    | Execute  | test(200, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074148178100586    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066757202148438    | Execute  | test(210)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081777572631836    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.07319450378418     | Execute  | test(220, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.107049942016602    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072002410888672    | Execute  | test(230)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.073909759521484    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089883804321289    | Execute  | test(240, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.174999237060547    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.097990036010742    | Execute  | test(250)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082969665527344    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079154968261719    | Execute  | test(260, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.103950500488281    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092983245849609    | Execute  | test(270)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.101804733276367    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066041946411133    | Execute  | test(280, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077962875366211    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067949295043945    | Execute  | test(290)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067949295043945    | Execute  | test(300, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.130176544189453    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.151872634887695    | Execute  | test(310)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077009201049805    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test(320, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.102996826171875    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066995620727539    | Execute  | test(330)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077009201049805    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.069856643676758    | Execute  | test(340, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088214874267578    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059127807617188    | Execute  | test(350)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074863433837891    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072956085205078    | Execute  | test(360, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.086069107055664    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.107049942016602    | Execute  | test(370)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.087976455688477    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059127807617188    | Execute  | test(380, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074863433837891    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072240829467773    | Execute  | test(390)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092029571533203    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058650970458984    | Execute  | test(400, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.100135803222656    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.085115432739258    | Execute  | test(410)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.211000442504883    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066757202148438    | Execute  | test(420, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.085115432739258    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.064849853515625    | Execute  | test(430)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.093221664428711    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082015991210938    | Execute  | test(440, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.102043151855469    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.068902969360352    | Execute  | test(450)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.108242034912109    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.104904174804688    | Execute  | test(460, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.187158584594727    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.084877014160156    | Execute  | test(470)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.097036361694336    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.065803527832031    | Execute  | test(480, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.1220703125         | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067949295043945    | Execute  | test(490)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.094175338745117    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070810317993164    | Execute  | test(500, "dummy")                |
++-----------------------------------------+----------------------+----------+-----------------------------------+
+| Total Execution Time                    | 0.008789777755737312 |
++-----------------------------------------+----------------------+----------+-----------------------------------+
++-----------------------------------------+-------------------+----------+-----------------------------------+
+| File                                    | Execution Time    | Action   | Signature                         |
++-----------------------------------------+-------------------+----------+-----------------------------------+
+| Unknown file                            | 0.041007995605469 | Allocate | test()                            |
+| Unknown file                            | 0.013113021850586 | Allocate | test-2()                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.161170959472656 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.112056732177734 | Execute  | test(10)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.086069107055664 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070095062255859 | Execute  | test(20, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.1068115234375   | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.121116638183594 | Execute  | test(30)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.1220703125      | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.128984451293945 | Execute  | test(40, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092029571533203 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.095129013061523 | Execute  | test(50)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.098943710327148 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072956085205078 | Execute  | test(60, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081777572631836 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067234039306641 | Execute  | test(70)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.090837478637695 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.071048736572266 | Execute  | test(80, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.1220703125      | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074148178100586 | Execute  | test(90)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088691711425781 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.068187713623047 | Execute  | test(100, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08082389831543  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.06103515625     | Execute  | test(110)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077009201049805 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.060081481933594 | Execute  | test(120, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077962875366211 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059843063354492 | Execute  | test(130)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092983245849609 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.061988830566406 | Execute  | test(140, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.139951705932617 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.166177749633789 | Execute  | test(150)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.085830688476563 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398 | Execute  | test(160, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082015991210938 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.1220703125      | Execute  | test(170)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.094175338745117 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.064849853515625 | Execute  | test(180, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.087261199951172 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056743621826172 | Execute  | test(190)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.085115432739258 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168  | Execute  | test(200, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078201293945313 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066041946411133 | Execute  | test(210)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077009201049805 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.067234039306641 | Execute  | test(220, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.085115432739258 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059127807617188 | Execute  | test(230)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.153064727783203 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.110149383544922 | Execute  | test(240, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.09608268737793  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066995620727539 | Execute  | test(250)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.120639801025391 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.101327896118164 | Execute  | test(260, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.095129013061523 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081062316894531 | Execute  | test(270)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08702278137207  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168  | Execute  | test(280, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.084161758422852 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072956085205078 | Execute  | test(290)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.068187713623047 | Execute  | test(300, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.110149383544922 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.098705291748047 | Execute  | test(310)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.084400177001953 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076770782470703 | Execute  | test(320, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091075897216797 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168  | Execute  | test(330)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.097036361694336 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.061988830566406 | Execute  | test(340, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.094890594482422 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.054121017456055 | Execute  | test(350)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081300735473633 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070810317993164 | Execute  | test(360, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077009201049805 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.090122222900391 | Execute  | test(370)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089168548583984 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.054836273193359 | Execute  | test(380, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074863433837891 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.068902969360352 | Execute  | test(390)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.103950500488281 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992 | Execute  | test(400, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.104904174804688 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.086069107055664 | Execute  | test(410)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076770782470703 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056982040405273 | Execute  | test(420, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088214874267578 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066757202148438 | Execute  | test(430)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.101804733276367 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074148178100586 | Execute  | test(440, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.09918212890625  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070810317993164 | Execute  | test(450)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.108957290649414 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.105142593383789 | Execute  | test(460, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.090837478637695 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059127807617188 | Execute  | test(470)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079870223999023 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168  | Execute  | test(480, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.113964080810547 | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.063896179199219 | Execute  | test(490)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08392333984375  | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.065088272094727 | Execute  | test(500, "dummy")                |
++-----------------------------------------+-------------------+----------+-----------------------------------+
+| Total Execution Time                    | 8.64648818969727  |
++-----------------------------------------+-------------------+----------+-----------------------------------+
++-----------------------------------------+----------------------+----------+-----------------------------------+
+| File                                    | Execution Time       | Action   | Signature                         |
++-----------------------------------------+----------------------+----------+-----------------------------------+
+| Unknown file                            | 0.041961669921875    | Allocate | test()                            |
+| Unknown file                            | 0.016212463378906    | Allocate | test-2()                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.163793563842773    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.107049942016602    | Execute  | test(10)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.094890594482422    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.07319450378418     | Execute  | test(20, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.086069107055664    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066995620727539    | Execute  | test(30)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.087738037109375    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.065088272094727    | Execute  | test(40, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.084877014160156    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.068187713623047    | Execute  | test(50)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.138044357299805    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.146865844726563    | Execute  | test(60, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.093936920166016    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.085830688476563    | Execute  | test(70)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.087738037109375    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.073909759521484    | Execute  | test(80, "dummy")                 |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089168548583984    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078916549682617    | Execute  | test(90)                          |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.087976455688477    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.07319450378418     | Execute  | test(100, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.084877014160156    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.061988830566406    | Execute  | test(110)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079154968261719    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059843063354492    | Execute  | test(120, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082254409790039    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072956085205078    | Execute  | test(130)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089883804321289    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066041946411133    | Execute  | test(140, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.101804733276367    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.106096267700195    | Execute  | test(150)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081062316894531    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066995620727539    | Execute  | test(160, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076770782470703    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059127807617188    | Execute  | test(170)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.10228157043457     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.102758407592773    | Execute  | test(180, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082015991210938    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.07176399230957     | Execute  | test(190)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.078916549682617    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.071048736572266    | Execute  | test(200, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.10228157043457     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075817108154297    | Execute  | test(210)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079154968261719    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168     | Execute  | test(220, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.088930130004883    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test(230)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.134944915771484    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.107049942016602    | Execute  | test(240, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.089883804321289    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.073909759521484    | Execute  | test(250)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.129938125610352    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.151157379150391    | Execute  | test(260, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.100135803222656    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.06103515625        | Execute  | test(270)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079870223999023    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.06103515625        | Execute  | test(280, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.080108642578125    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056982040405273    | Execute  | test(290)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.093221664428711    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.108718872070313    | Execute  | test(300, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.121116638183594    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.086069107055664    | Execute  | test(310)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.096797943115234    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.066041946411133    | Execute  | test(320, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079154968261719    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.068902969360352    | Execute  | test(330)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077962875366211    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.056982040405273    | Execute  | test(340, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.077009201049805    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992    | Execute  | test(350)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.081300735473633    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.058889389038086    | Execute  | test(360, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.092029571533203    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.059843063354492    | Execute  | test(370)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.086069107055664    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test(380, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079870223999023    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.060319900512695    | Execute  | test(390)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.10991096496582     | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.113248825073242    | Execute  | test(400, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.131845474243164    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.08702278137207     | Execute  | test(410)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.091075897216797    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.05793571472168     | Execute  | test(420, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.097036361694336    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.06866455078125     | Execute  | test(430)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.095129013061523    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070810317993164    | Execute  | test(440, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.115156173706055    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.074863433837891    | Execute  | test(450)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.111818313598633    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.132083892822266    | Execute  | test(460, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079870223999023    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.060319900512695    | Execute  | test(470)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.079154968261719    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.070810317993164    | Execute  | test(480, "dummy")                |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.082969665527344    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.075101852416992    | Execute  | test(490)                         |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.076055526733398    | Execute  | test-2(("key": false), (1, 2, 3)) |
+| sass-prof-spec.scss:sass-prof-spec.scss | 0.072240829467773    | Execute  | test(500, "dummy")                |
++-----------------------------------------+----------------------+----------+-----------------------------------+
+| Total Execution Time                    | 0.008670091629028322 |
++-----------------------------------------+----------------------+----------+-----------------------------------+

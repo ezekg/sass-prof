@@ -4,7 +4,7 @@ prof             = Sass::Prof::Config
 prof.output_file = "sass-prof.log"
 # prof.quiet       = true
 prof.max_width   = 40
-prof.color       = false
+prof.color       = true
 prof.t_max       = 5
 prof.precision   = 15
 

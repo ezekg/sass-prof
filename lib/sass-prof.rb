@@ -32,7 +32,7 @@ module Sass
       @rows = []
 
       def add_row(row)
-        row = truncate_row row if Prof::Config.max_width
+        row = Prof::Formatter.truncate_row row if Prof::Config.max_width
         @rows << row
       end
 
@@ -50,26 +50,6 @@ module Sass
           f.puts Prof::Formatter.to_table @rows.map { |r|
             r.map { |col| col.gsub /\e\[(\d+)(;\d+)*m/, "" } }
         end
-      end
-
-      private
-
-      def truncate_row(row)
-        max_width = Prof::Config.max_width
-        tr_row = []
-
-        row.map do |col|
-          clean_width = col.gsub(/\e\[(\d+)(;\d+)*m/, "").length
-          diff        = col.length - clean_width
-
-          if clean_width > max_width
-            tr_row << (col[0..max_width + diff] << "\e[0m...")
-          else
-            tr_row << col
-          end
-        end
-
-        tr_row
       end
 
       extend self
@@ -95,11 +75,12 @@ module Sass
       end
 
       def to_table(rows)
+        t_total_in_seconds = rows.map { |c|
+          c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }.reduce(:+) / 1000 % 60
 
         # Add total execution time footer
         rows << :separator
-        rows << ["Total Execution Time", rows.map { |c|
-          c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }.reduce(:+)]
+        rows << ["Total Execution Time", t_total_in_seconds]
 
         table = Terminal::Table.new({
           :headings => ["File", "Execution Time", "Action", "Signature"],
@@ -107,6 +88,24 @@ module Sass
         })
 
         table
+      end
+
+      def truncate_row(row)
+        max_width = Prof::Config.max_width
+        tr_row = []
+
+        row.map do |col|
+          clean_width = col.gsub(/\e\[(\d+)(;\d+)*m/, "").length
+          diff        = col.length - clean_width
+
+          if clean_width > max_width
+            tr_row << (col[0..max_width + diff] << "\e[0m...")
+          else
+            tr_row << col
+          end
+        end
+
+        tr_row
       end
 
       extend self
@@ -135,12 +134,12 @@ module Sass
         t_delta = (@@t_now.to_f - @@t_then.to_f) * 1000.0
         @@t_then, @@t_total = @@t_now, t_delta
 
-        prep_fn_report
+        create_fn_report
       end
 
       private
 
-      def prep_fn_report
+      def create_fn_report
         fn_report = [fn_source, fn_execution_time, fn_action,
           fn_signature]
 
