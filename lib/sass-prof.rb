@@ -57,39 +57,39 @@ module Sass
 
     module Formatter
 
+      COLORS = Hash.new("37").merge({
+        :black  => "30",
+        :red    => "31",
+        :green  => "32",
+        :yellow => "33",
+        :blue   => "34",
+        :purple => "35",
+        :cyan   => "36",
+        :white  => "37",
+      })
+
       def colorize(string, color)
         return string.to_s unless Prof::Config.color
 
-        colors = Hash.new("37").merge({
-          :black  => "30",
-          :red    => "31",
-          :green  => "32",
-          :yellow => "33",
-          :blue   => "34",
-          :purple => "35",
-          :cyan   => "36",
-          :white  => "37",
-        })
-
-        "\e[0;#{colors.fetch(color)}m#{string}\e[0m"
+        "\e[0;#{COLORS.fetch(color)}m#{string}\e[0m"
       end
 
       def to_table(rows)
-        t_ms = rows.map { |c|
-          c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }.reduce :+
+        pr = Prof::Config.precision / 3 - 5 # 5 is to account for whitespace
+        t  = Time.now.to_f
 
-        if t_ms.nil?
-          t = Prof::Formatter.colorize "Unknown", :red
-        elsif t_ms > 1000
-          t_sec = t_ms / 1000 % 60
-          t = "%.#{Prof::Config.precision - 1}fs" % t_sec
-        else
-          t = "%.#{Prof::Config.precision - 2}fms" % t_ms
-        end
+        t_ms = rows.map { |c|
+          t += c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }
+
+        t -= Time.now.to_f
+
+        ss, ms = t.divmod 1000
+        mm, ss = ss.divmod 60
+        # hh, mm = mm.divmod 60
 
         # Add total execution time footer
         rows << :separator
-        rows << ["Total", t]
+        rows << ["Total", "%.#{pr}fm %.#{pr}fs %.#{pr}fms" % [mm, ss, ms]]
 
         table = Terminal::Table.new({
           :headings => ["File", "Execution Time", "Action", "Signature"],
