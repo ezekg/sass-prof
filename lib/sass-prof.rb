@@ -75,21 +75,17 @@ module Sass
       end
 
       def to_table(rows)
-        pr = Prof::Config.precision / 3 - 5 # 5 is to account for whitespace
-        t  = Time.now.to_f
-
+        pr   = Prof::Config.precision / 3 - 5 # 5 is to account for whitespace
         t_ms = rows.map { |c|
-          t += c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }
+          c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }.reduce :+
 
-        t -= Time.now.to_f
-
-        ss, ms = t.divmod 1000
-        mm, ss = ss.divmod 60
-        # hh, mm = mm.divmod 60
+        t_ss, t_ms = t_ms.divmod 1000
+        t_mm, t_ss = t_ss.divmod 60
 
         # Add total execution time footer
         rows << :separator
-        rows << ["Total", "%.#{pr}fm %.#{pr}fs %.#{pr}fms" % [mm, ss, ms]]
+        rows << ["Total",
+          "%.#{pr}fm %.#{pr}fs %.#{pr}fms" % [t_mm, t_ss, t_ms]]
 
         table = Terminal::Table.new({
           :headings => ["File", "Execution Time", "Action", "Signature"],

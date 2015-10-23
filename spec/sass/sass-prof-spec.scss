@@ -19,7 +19,7 @@
   @return nth($list, 1);
 }
 
-@for $i from 1 through 250 {
+@for $i from 1 through 50 {
   test {
     @if $i % 2 == 0  {
       function: test($i * 10, "dummy");
