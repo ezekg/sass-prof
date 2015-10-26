@@ -69,4 +69,5 @@ _Please note: your compile times **will be slower** due to the overhead of **Sas
 
 ## Todo
 
-- [ ] Support `@mixin`'s
+- [ ] Add proper rspec tests
+- [ ] Add support for `@mixin`'s
