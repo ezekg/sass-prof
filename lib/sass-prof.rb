@@ -84,8 +84,12 @@ module Sass
 
         # Add total execution time footer
         rows << :separator
-        rows << ["Total",
-          "%.#{pr}fm %.#{pr}fs %.#{pr}fms" % [t_mm, t_ss, t_ms]]
+        rows << [
+          "Total",
+          "%.#{pr}fm %.#{pr}fs %.#{pr}fms" % [t_mm, t_ss, t_ms],
+          "",
+          ""
+        ]
 
         table = Terminal::Table.new({
           :headings => ["File", "Execution Time", "Action", "Signature"],
@@ -223,7 +227,7 @@ module Sass
     alias_method :__perform_sass_fn, :perform_sass_fn
 
     def perform_sass_fn(function, args, splat, environment)
-      prof = Prof::Profiler.new(function.dup, :execute, args.dup,
+      prof = Prof::Profiler.new(function.dup, :invoke, args.dup,
         environment.dup)
       prof.start
 
