@@ -52,7 +52,7 @@ prof.max_execution_time = 15
 # Default is `true`
 prof.color = true
 
-# Execution time integer precision
+# Execution time floating point precision
 # Default is `15`
 prof.precision = 5
 ```
