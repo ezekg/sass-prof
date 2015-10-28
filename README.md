@@ -66,8 +66,3 @@ _Please note: your compile times **will be slower** due to the overhead of **Sas
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
-
-## Todo
-
-- [ ] Add proper rspec tests
-- [ ] Add support for `@mixin`'s
