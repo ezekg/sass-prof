@@ -35,7 +35,7 @@ module SassProf
 
       Reporter.add_row fn_report unless Config.quiet
 
-      if @t_total > Config.t_max && invoked_action?
+      if @t_total > Config.t_max && is_performable_action?
         raise RuntimeError.new Formatter.colorize(
           "Max execution time of #{Config.t_max}ms reached for function"\
           " `#{fn_name}()` (took #{@t_total.round(3)}ms)", :red)
@@ -86,7 +86,7 @@ module SassProf
       "(#{Formatter.colorize(fn_args, :purple)})"
     end
 
-    def invoked_action?
+    def is_performable_action?
       [:invoke, :include, :extend].include? action
     end
   end
