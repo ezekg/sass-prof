@@ -31,14 +31,14 @@ module SassProf
       # Add total execution time footer
       rows << :separator
       rows << [
-        "Total",
+        "total",
         "%.#{pr}fm %.#{pr}fs %.#{pr}fms" % [t_mm, t_ss, t_ms],
         "",
         ""
       ]
 
       table = Terminal::Table.new({
-        :headings => ["File", "Execution Time", "Action", "Signature"],
+        :headings => ["file", "execution time", "action", "signature"],
         :rows     => rows
       })
 
