@@ -7,7 +7,7 @@ require "sass-prof/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "sass-prof"
-  spec.version       = Sass::Prof::VERSION
+  spec.version       = SassProf::VERSION
   spec.authors       = ["ezekg"]
   spec.email         = ["ezekg@yahoo.com"]
 

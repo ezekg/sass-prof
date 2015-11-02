@@ -1,6 +1,6 @@
 require_relative "../lib/sass-prof"
 
-prof             = Sass::Prof::Config
+prof             = SassProf::Config
 # prof.output_file = "sass-prof.log"
 # prof.quiet       = true
 prof.max_width   = 40

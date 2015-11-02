@@ -26,8 +26,8 @@ You may specify a few options within your `config.rb`, such as directing output 
 ```ruby
 require "sass-prof"
 
-# Instance of Sass::Prof's configuration
-prof = Sass::Prof::Config
+# Configuration object
+prof = SassProf::Config
 
 # Directs all output to a log file
 # Default is `false`
