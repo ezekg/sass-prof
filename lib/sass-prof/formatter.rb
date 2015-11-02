@@ -23,6 +23,8 @@ module SassProf
       t_ms = rows.map { |c|
         c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }.reduce :+
 
+      return if t_ms.nil?
+
       t_ss, t_ms = t_ms.divmod 1000
       t_mm, t_ss = t_ss.divmod 60
 
