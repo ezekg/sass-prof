@@ -6,15 +6,15 @@ module SassProf
     end
 
     def name
-      @subject.join ", "
+      @env.selector.members.join(", ").tr "\n", ""
     end
 
     def args
-      "{ ... }"
+      @subject.selector.join ", "
     end
 
     def signature
-      "#{Formatter.colorize(name, :blue)} "\
+      "#{Formatter.colorize(name, :blue)} < "\
       "#{Formatter.colorize(args, :purple)}"
     end
   end

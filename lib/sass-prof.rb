@@ -69,12 +69,12 @@ module Sass
     end
 
     #
-    # Extend perform
+    # Extend definition
     #
     alias_method :__visit_extend, :visit_extend
 
     def visit_extend(node)
-      prof = ::SassProf::ExtProfiler.new(node.dup.selector, :ext, nil,
+      prof = ::SassProf::ExtProfiler.new(node.dup, :ext, nil,
         @environment)
       prof.start
 

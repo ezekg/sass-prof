@@ -26,7 +26,8 @@
 }
 
 @for $i from 1 through 25 {
-  .test {
+  .test,
+  .test-2 {
     @extend %placeholder;
     // @include opacity(0);
 
