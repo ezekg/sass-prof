@@ -20,10 +20,7 @@ module SassProf
     end
 
     def to_table(rows)
-      pr   = Config.precision / 3
-      pr  -= 5 unless pr <= 5 # 5 is to account for whitespace
-      t_ms = rows.map { |c|
-        c[1].gsub(REGEX_ASCII, "").to_f }.reduce :+
+      t_ms = rows.map { |c| c[1].gsub(REGEX_ASCII, "").to_f }.reduce :+
 
       return if t_ms.nil?
 
@@ -34,7 +31,7 @@ module SassProf
       rows << :separator
       rows << [
         "total",
-        "%.#{pr}fm %.#{pr}fs %.#{pr}fms" % [t_mm, t_ss, t_ms],
+        "%.0fm %.0fs %.0fms" % [t_mm, t_ss, t_ms],
         "",
         ""
       ]
