@@ -10,6 +10,8 @@ require "sass-prof/fundef_profiler"
 require "sass-prof/fun_profiler"
 require "sass-prof/mixdef_profiler"
 require "sass-prof/mix_profiler"
+require "sass-prof/extdef_profiler"
+require "sass-prof/ext_profiler"
 require "sass-prof/vardef_profiler"
 
 # Monkey patch Sass to utilize Profiler
@@ -117,7 +119,7 @@ module Sass
         self)
       prof.start
 
-      value = __set_var name, value
+      value = __set_local_var name, value
 
       prof.stop
 
