@@ -58,7 +58,7 @@ module SassProf
       if @args.is_a? Array
         @args.map { |a| a.inspect }.join(", ")
       else
-        @args.to_s[1...@args.length-2]
+        @args.to_s[1...@args.to_s.length-2]
       end
     end
 
