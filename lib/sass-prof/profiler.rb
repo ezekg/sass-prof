@@ -1,6 +1,8 @@
 module SassProf
   class Profiler
 
+    PERFORMABLE_ACTIONS = [:fun, :mix, :ext]
+
     def initialize(subject, action, args = nil, env = nil)
       @subject = subject
       @action  = action
@@ -82,7 +84,7 @@ module SassProf
     end
 
     def is_performable_action?
-      [:invoke, :include, :extend].include? @action
+      PERFORMABLE_ACTIONS.include? @action
     end
   end
 end

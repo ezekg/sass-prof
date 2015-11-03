@@ -10,9 +10,8 @@ require "sass-prof/fundef_profiler"
 require "sass-prof/fun_profiler"
 require "sass-prof/mixdef_profiler"
 require "sass-prof/mix_profiler"
-require "sass-prof/extdef_profiler"
 require "sass-prof/ext_profiler"
-require "sass-prof/vardef_profiler"
+require "sass-prof/var_profiler"
 
 # Monkey patch Sass to utilize Profiler
 module Sass
@@ -68,6 +67,23 @@ module Sass
 
       value
     end
+
+    #
+    # Extend perform
+    #
+    alias_method :__visit_extend, :visit_extend
+
+    def visit_extend(node)
+      prof = ::SassProf::ExtProfiler.new(node.dup.selector, :ext, nil,
+        @environment)
+      prof.start
+
+      value = __visit_extend node
+
+      prof.stop
+
+      value
+    end
   end
 
   class Script::Tree::Funcall
@@ -98,7 +114,7 @@ module Sass
     alias_method :__set_var, :set_var
 
     def set_var(name, value)
-      prof = ::SassProf::VardefProfiler.new(name.dup, :vardef, value.dup,
+      prof = ::SassProf::VarProfiler.new(name.dup, :vardef, value.dup,
         self)
       prof.start
 
@@ -115,7 +131,7 @@ module Sass
     alias_method :__set_local_var, :set_local_var
 
     def set_local_var(name, value)
-      prof = ::SassProf::VardefProfiler.new(name.dup, :vardef, value.dup,
+      prof = ::SassProf::VarProfiler.new(name.dup, :vardef, value.dup,
         self)
       prof.start
 
