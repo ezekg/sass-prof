@@ -69,7 +69,7 @@ module Sass
     end
 
     #
-    # Extend definition
+    # Extend perform
     #
     alias_method :__visit_extend, :visit_extend
 
