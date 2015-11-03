@@ -21,7 +21,7 @@ module SassProf
     def log_report
       File.open(Config.output_file, "a+") do |f|
         f.puts Formatter.to_table @rows.map { |r|
-          r.map { |col| col.gsub /\e\[(\d+)(;\d+)*m/, "" } }
+          r.map { |col| col.gsub Formatter::REGEX_ASCII, "" } }
       end
     end
 

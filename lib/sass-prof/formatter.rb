@@ -1,7 +1,8 @@
 module SassProf
   module Formatter
 
-    COLORS = Hash.new("37").merge({
+    REGEX_ASCII = /\e\[(\d+)(;\d+)*m/
+    COLORS      = Hash.new("37").merge({
       :black  => "30",
       :red    => "31",
       :green  => "32",
@@ -19,16 +20,17 @@ module SassProf
     end
 
     def to_table(rows)
-      pr   = Config.precision / 3 - 5 # 5 is to account for whitespace
+      pr   = Config.precision / 3
+      pr  -= 5 unless pr <= 5 # 5 is to account for whitespace
       t_ms = rows.map { |c|
-        c[1].gsub(/\e\[(\d+)(;\d+)*m/, "").to_f }.reduce :+
+        c[1].gsub(REGEX_ASCII, "").to_f }.reduce :+
 
       return if t_ms.nil?
 
       t_ss, t_ms = t_ms.divmod 1000
       t_mm, t_ss = t_ss.divmod 60
 
-      # Add total execution time footer
+      # Add footer containing total execution time
       rows << :separator
       rows << [
         "total",
@@ -50,7 +52,7 @@ module SassProf
       tr_row = []
 
       row.map do |col|
-        clean_width = col.gsub(/\e\[(\d+)(;\d+)*m/, "").length
+        clean_width = col.gsub(REGEX_ASCII, "").length
         diff        = col.length - clean_width
 
         if clean_width > max_width

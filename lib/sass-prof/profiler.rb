@@ -1,14 +1,14 @@
 module SassProf
   class Profiler
 
-    def initialize(function, action, args = nil, env = nil)
-      @function = function
-      @action   = action
-      @args     = args
-      @env      = env
-      @t_total  = 0
-      @t_then   = 0
-      @t_now    = 0
+    def initialize(subject, action, args = nil, env = nil)
+      @subject = subject
+      @action  = action
+      @args    = args
+      @env     = env
+      @t_total = 0
+      @t_then  = 0
+      @t_now   = 0
     end
 
     def start
@@ -32,7 +32,7 @@ module SassProf
 
       if @t_total > Config.t_max && is_performable_action?
         raise RuntimeError.new Formatter.colorize(
-          "Max execution time of #{Config.t_max}ms reached for function"\
+          "Max execution time of #{Config.t_max}ms reached for #{@action}"\
           " `#{name}()` (took #{@t_total.round(3)}ms)", :red)
       end
     end
@@ -45,8 +45,8 @@ module SassProf
 
     def name
       case
-      when @function.respond_to?(:name)
-        @function.name
+      when @subject.respond_to?(:name)
+        @subject.name
       else
         "Unknown function"
       end
@@ -66,7 +66,7 @@ module SassProf
       return Formatter.colorize("Unknown file", :red) unless @env
 
       orig_filename = @env.options.fetch :original_filename, "Unknown file"
-      filename      = @env.options.fetch :filename, "Unknown file"
+      filename      = @env.options.fetch :filename,          "Unknown file"
 
       Formatter.colorize "#{File.basename(orig_filename)}:"\
         "#{File.basename(filename)}", :yellow
