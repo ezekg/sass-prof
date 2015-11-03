@@ -114,7 +114,7 @@ module Sass
     alias_method :__set_var, :set_var
 
     def set_var(name, value)
-      prof = ::SassProf::VarProfiler.new(name.dup, :vardef, value.dup,
+      prof = ::SassProf::VarProfiler.new(name.dup, :var, value.dup,
         self)
       prof.start
 
@@ -131,7 +131,7 @@ module Sass
     alias_method :__set_local_var, :set_local_var
 
     def set_local_var(name, value)
-      prof = ::SassProf::VarProfiler.new(name.dup, :vardef, value.dup,
+      prof = ::SassProf::VarProfiler.new(name.dup, :var, value.dup,
         self)
       prof.start
 
