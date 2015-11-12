@@ -22,6 +22,13 @@ module SassProf
       t_delta = (@t_now.to_f - @t_then.to_f) * 1000.0
       @t_then, @t_total = @t_now, t_delta
 
+      # Add to total execution time
+      Timer.add_t_total t_delta
+
+      # Add to action's execution time and count
+      Timer.send "add_t_#{@action}_total",   t_delta
+      Timer.send "add_cnt_#{@action}_total", 1
+
       create_report
     end
 
@@ -30,7 +37,7 @@ module SassProf
     def create_report
       report = [source, execution_time, action, signature]
 
-      Reporter.add_row report unless Config.quiet
+      Reporter.add_row report
 
       if @t_total > Config.t_max && is_performable_action?
         raise RuntimeError.new Formatter.colorize(
@@ -65,7 +72,8 @@ module SassProf
     end
 
     def source
-      return Formatter.colorize("Unknown file", :red) unless @env
+      return Formatter.colorize("Unknown file", :red) unless @env &&
+        @env.respond_to?(:options)
 
       orig_filename = @env.options.fetch :original_filename, "Unknown file"
       filename      = @env.options.fetch :filename,          "Unknown file"

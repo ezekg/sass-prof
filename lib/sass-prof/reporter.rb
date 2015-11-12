@@ -15,7 +15,7 @@ module SassProf
 
     def print_report
       log_report if Config.output_file
-      puts Formatter.to_table @rows
+      puts Formatter.to_table @rows unless Config.quiet
     end
 
     def log_report

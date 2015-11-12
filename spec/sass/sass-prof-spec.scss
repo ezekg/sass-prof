@@ -1,4 +1,4 @@
-// @import "compass";
+@import "compass";
 
 @function test($iterations, $dummy-var: "") {
   $result: false;
@@ -27,9 +27,9 @@
 
 @for $i from 1 through 25 {
   .test,
-  .test-2 {
+  .test-#{$i} {
     @extend %placeholder;
-    // @include opacity(0);
+    @include opacity(0);
 
     @if $i % 2 == 0  {
       function: test($i * 10, "dummy");

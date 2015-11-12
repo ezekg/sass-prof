@@ -20,19 +20,54 @@ module SassProf
     end
 
     def to_table(rows)
-      t_ms = rows.map { |c| c[1].gsub(REGEX_ASCII, "").to_f }.reduce :+
+      t_ms = Timer.t_total
 
       return if t_ms.nil?
 
       t_ss, t_ms = t_ms.divmod 1000
       t_mm, t_ss = t_ss.divmod 60
 
+      # Add summary for each action type
+      Timer::SUMMARIES.reject { |s| s == :t_total }.each do |summary|
+        break unless Config.subtotal
+
+        case summary
+        when /^(t_)/
+          sum_t_ms = Timer.send summary
+
+          next if sum_t_ms.nil?
+
+          sum_t_ss, sum_t_ms = sum_t_ms.divmod 1000
+          sum_t_mm, sum_t_ss = sum_t_ss.divmod 60
+
+          rows << :separator
+          rows << [
+            "subtotal",
+            "%.0fm %.0fs %.0fms" % [sum_t_mm, sum_t_ss, sum_t_ms],
+            "#{summary}".gsub(/(^(t_)|(_total)$)/, ""),
+            ""
+          ]
+        when /^(cnt_)/
+          count = Timer.send summary
+
+          next if count.nil?
+
+          rows << :separator
+          rows << [
+            "count",
+            "#{count}",
+            "#{summary}".gsub(/(^(cnt_)|(_total)$)/, ""),
+            ""
+          ]
+        end
+      end
+
       # Add footer containing total execution time
       rows << :separator
       rows << [
         "total",
         "%.0fm %.0fs %.0fms" % [t_mm, t_ss, t_ms],
-        "",
+        "all",
         ""
       ]
 

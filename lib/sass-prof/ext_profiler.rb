@@ -6,11 +6,11 @@ module SassProf
     end
 
     def name
-      @env.selector.members.join(", ").tr "\n", ""
+      @env.members.join(", ").tr "\n", ""
     end
 
     def args
-      @subject.selector.join ", "
+      @subject.members.join ", "
     end
 
     def signature
