@@ -4,7 +4,7 @@
 
 ![Sass Prof](screenshot.jpg)
 
-Sass Prof is a code profiler for [Sass](https://github.com/sass/sass). For each function, Sass Prof will show the execution time for the function, which file called it and what arguments were given when the function was called.
+Sass Prof is a code profiler for [Sass](https://github.com/sass/sass). For each `@function`, `@mixin`, `@include` and `$variable`, Sass Prof will show its execution time, which file called it and what arguments were given when it was called. Currently, `@extend` is not supported but it is a planned feature.
 
 ## Requirements
 
@@ -21,7 +21,7 @@ Sass Prof is a code profiler for [Sass](https://github.com/sass/sass). For each 
 1. Remove the line `require "sass-prof"` from your `config.rb`
 
 ## Usage
-You may specify a few options within your `config.rb`, such as directing output to a log file.
+You may specify a few options within your `config.rb`, such as ignoring certain actions or directing output to a log file.
 
 ```ruby
 require "sass-prof"
@@ -55,9 +55,22 @@ prof.color = true
 # Execution time floating point precision
 # Default is `15`
 prof.precision = 5
+
+# Ignore certain action types during profile
+# Default is `[]`
+prof.ignore = [
+  :fundef,
+  :fun,
+  :mixdef,
+  :mix.
+  :var,
+]
+
+# Alias for `ignore`
+prof.ignore_actions = []
 ```
 
-_Please note: your compile times **will be slower** due to the overhead of **Sass Prof**. This library was created to help you find potential bottlenecks within your code. If you find any bugs or inconsistencies, please file an [issue](https://github.com/ezekg/sass-prof/issues) or [pull request](https://github.com/ezekg/sass-prof/pulls)._
+_Please note: your compile times **will be slower** due to the overhead of Sass Prof, but I've tried to be as accurate as possible in the measurements. This library was created to help you find potential bottlenecks within your code, so I hope it succeeds in that regard. If you find any bugs or inconsistencies, please file an [issue](https://github.com/ezekg/sass-prof/issues) or [pull request](https://github.com/ezekg/sass-prof/pulls)._
 
 ## Contributing
 

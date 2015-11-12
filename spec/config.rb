@@ -9,9 +9,11 @@ prof.t_max       = 500
 prof.precision   = 15
 prof.ignore      = [
   # :fundef,
+  # :fun,
   # :mixdef,
+  # :mix.
   # :var,
-  # :ext
+  # :ext,
 ]
 
 http_path = "/"
