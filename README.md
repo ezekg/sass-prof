@@ -62,7 +62,7 @@ prof.ignore = [
   :fundef,
   :fun,
   :mixdef,
-  :mix.
+  :mix,
   :var,
 ]
 
